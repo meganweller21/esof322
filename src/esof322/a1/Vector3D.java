@@ -3,7 +3,7 @@ package esof322.a1;
 
 /**
  *Team 03
- * @author Megan Weller, Ashley Bertrand, Shiela Tupker
+ * @author Megan Weller, Ashley Bertrand, Sheila Tupker
  */
 public class Vector3D {
     private double x;
@@ -25,12 +25,26 @@ public class Vector3D {
     }
             
     //Vector3D add Ashley
-    //Vector3D subtract Shiela
-    //Vector3D negate Shiela
+    public Vector3D add(Vector3D v) {
+        return v;
+    }
+    
+    //Vector3D subtract Sheila
+    
+    //Vector3D negate Sheila
+    
     //double dot Ashley
-    //double magnitude Shiela
+    public double dot(Vector3D v) {
+        return 1;
+    }
+    
+    //double magnitude Sheila
+    
     //toString Ashley
+    @Override
+    public String toString() {
+        return "Ashley is so cool";
+    }
+    
     //implementation of equals Megan 
-    
-    
 }

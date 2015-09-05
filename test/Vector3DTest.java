@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Megan Weller, Ashley Bertrand, Shiela Tupker
+ * @author Megan Weller, Ashley Bertrand, Sheila Tupker
  */
 public class Vector3DTest {
     
@@ -34,6 +34,18 @@ public class Vector3DTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void testAdd() {
+    
+    }
+    
+    @Test
+    public void testDot() {
+    
+    }
+    
+    @Test
+    public void testToString() {
+    
+    }
 }
