@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Megan Weller, Ashey Bertrand, Shiela Tupker
+ * @author Megan Weller, Ashley Bertrand, Shiela Tupker
  */
 public class Vector3DTest {
     
