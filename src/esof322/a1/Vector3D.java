@@ -18,10 +18,10 @@ public class Vector3D {
      }
     
     //Vector3D scale Megan
-    public Vector3D(double f){
-        x = x * f;
-        y = y * f;
-        z = z * f;            
+    public Vector3D scale(double f){
+       Vector3D v = new Vector3D(this.x*f, this.y*f, this.z*f);
+       return v;
+
     }
             
     //Vector3D add Ashley
@@ -47,4 +47,18 @@ public class Vector3D {
     }
     
     //implementation of equals Megan 
+    public boolean equals(Vector3D v, Vector3D v2){
+        if(v == null || v2 == null) 
+                return false;
+        if(v.x != v2.x)
+               return false;
+        if(v.y != v2.y)
+               return false;
+        if(v.z != v2.z)  
+               return false;
+        
+        
+        return true;
+    }
+    
 }
