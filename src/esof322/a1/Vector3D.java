@@ -47,30 +47,20 @@ public class Vector3D {
     }
     
     //implementation of equals Megan 
-    public boolean equals(Vector3D v, Vector3D v2){
-        if(v == null || v2 == null) 
+    public boolean equals(Vector3D v){
+        if(this == null || v == null) 
                 return false;
-        if(v.x != v2.x)
+        if(this.x != v.x)
                return false;
-        if(v.y != v2.y)
+        if(this.y != v.y)
                return false;
-        if(v.z != v2.z)  
+        if(this.z != v.z)  
                return false;
         
         
         return true;
     }
     
-    public boolean equals2(Vector3D v) {
-        if(this == null || v == null) 
-            return false;
-        if(this.x != v.x)
-            return false;
-        if(this.y != v.y)
-            return false;
-        if(this.z != v.z)  
-            return false;
-        return true;
-    }
+    
     
 }

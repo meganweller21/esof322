@@ -41,7 +41,7 @@ public class Vector3DTest {
         Vector3D v1 = new Vector3D(1, 2, 3);
         Vector3D v2 = new Vector3D(4, 5, 6);
         Vector3D actual = v1.add(v2);
-        assertTrue(actual.equals2(expected));
+        assertTrue(actual.equals(expected));
     }
     
     @Test
@@ -68,7 +68,7 @@ public class Vector3DTest {
         Vector3D expVector = new Vector3D(2,4,6);
         Vector3D vector = new Vector3D(1,2,3);
         vector = vector.scale(2);
-        boolean result = vector.equals(expVector, vector);
+        boolean result = expVector.equals(vector);
         System.out.println(result);
         assertTrue(result);
         
@@ -80,12 +80,8 @@ public class Vector3DTest {
         Vector3D vector = new Vector3D(0,0,0);
         vector = vector.scale(2);
         
-        
-        //failing for some reason
-        //assertEquals(expVector, vector);
-        
-        //Ashley tried this:
-        assertTrue(expVector.equals2(vector));
+        //Thanks!
+        assertTrue(expVector.equals(vector));
         
     }
     
