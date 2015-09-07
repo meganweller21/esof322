@@ -26,7 +26,7 @@ public class Vector3D {
             
     //Vector3D add Ashley
     public Vector3D add(Vector3D v) {
-        return v;
+        return new Vector3D(this.x + v.x, this.y + v.y, this.z + v.z);
     }
     
     //Vector3D subtract Sheila
@@ -35,7 +35,7 @@ public class Vector3D {
     
     //double dot Ashley
     public double dot(Vector3D v) {
-        return 1;
+        return ((this.x * v.x) + (this.y * v.y) + (this.z * v.z));
     }
     
     //double magnitude Sheila
@@ -43,7 +43,7 @@ public class Vector3D {
     //toString Ashley
     @Override
     public String toString() {
-        return "Ashley is so cool";
+        return "{" + this.x + ", " + this.y + ", " + this.z + "}";
     }
     
     //implementation of equals Megan 
@@ -58,6 +58,18 @@ public class Vector3D {
                return false;
         
         
+        return true;
+    }
+    
+    public boolean equals2(Vector3D v) {
+        if(this == null || v == null) 
+            return false;
+        if(this.x != v.x)
+            return false;
+        if(this.y != v.y)
+            return false;
+        if(this.z != v.z)  
+            return false;
         return true;
     }
     

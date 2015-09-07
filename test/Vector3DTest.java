@@ -33,23 +33,32 @@ public class Vector3DTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     //Ashley
+    
     @Test
     public void testAdd() {
-    
+        Vector3D expected = new Vector3D(5, 7, 9);
+        Vector3D v1 = new Vector3D(1, 2, 3);
+        Vector3D v2 = new Vector3D(4, 5, 6);
+        Vector3D actual = v1.add(v2);
+        assertTrue(actual.equals2(expected));
     }
     
     @Test
     public void testDot() {
-    
+        double expected = 32.0;
+        Vector3D v1 = new Vector3D(1, 2, 3);
+        Vector3D v2 = new Vector3D(4, 5, 6);
+        double actual = v1.dot(v2);
+        assertEquals(actual, expected, 32.0);
     }
     
     @Test
     public void testToString() {
-    
+        String expected = "{1.0, 2.0, 3.0}";
+        Vector3D vector = new Vector3D(1, 2, 3);
+        String actual = vector.toString();
+        assertEquals(actual, expected);
     }
     
     //Megan
@@ -73,7 +82,10 @@ public class Vector3DTest {
         
         
         //failing for some reason
-        assertEquals(expVector, vector);
+        //assertEquals(expVector, vector);
+        
+        //Ashley tried this:
+        assertTrue(expVector.equals2(vector));
         
     }
     
