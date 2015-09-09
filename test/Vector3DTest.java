@@ -87,5 +87,22 @@ public class Vector3DTest {
     
     //Sheila
     
+    @Test
+    //will test the actual output to the expected output
+    //of subtracting vector1 from vector2
+    public void testSubtract(){
+       Vector3D vector1 = new Vector3D(1,2,3);
+       Vector3D vector2 = new Vector3D(4,5,6);
+       Vector3D output = vector2.subtract(vector1);
+       Vector3D compare = new Vector3D(3,3,3);
+       //Vector3D.subtract(Vector3D );
+      
+       //testing expected values to program values
+       assertTrue(output.equals(compare));
+       
+       
+        
+    }
+    
     
 }
