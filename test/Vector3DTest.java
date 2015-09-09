@@ -69,7 +69,7 @@ public class Vector3DTest {
         Vector3D vector = new Vector3D(1,2,3);
         vector = vector.scale(2);
         boolean result = expVector.equals(vector);
-        System.out.println(result);
+       // System.out.println(result);
         assertTrue(result);
         
     }
