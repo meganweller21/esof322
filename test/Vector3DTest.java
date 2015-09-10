@@ -95,14 +95,31 @@ public class Vector3DTest {
        Vector3D vector2 = new Vector3D(4,5,6);
        Vector3D output = vector2.subtract(vector1);
        Vector3D compare = new Vector3D(3,3,3);
-       //Vector3D.subtract(Vector3D );
+       
       
        //testing expected values to program values
        assertTrue(output.equals(compare));
-       
-       
-        
     }
-    
-    
+       
+    @Test
+       public void testMagnitude(){
+        Vector3D vector1 = new Vector3D(0,0,5);
+        double output = vector1.magnitude();
+        double compare = 5.0;
+        assertTrue(output == compare);
+    }
+       
+     @Test
+        public void testNegate(){
+            Vector3D vector1 = new Vector3D(1,2,3);
+            Vector3D output = vector1.negate();
+            Vector3D compare = new Vector3D(-1,-2,-3);
+            assertTrue(output.equals(compare));
+        }
 }
+        
+       
+    
+    
+    
+
