@@ -1,3 +1,5 @@
+package esof322.a1;
+
 
 import esof322.a1.Vector3D;
 import org.junit.After;

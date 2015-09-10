@@ -17,3 +17,4 @@ public class Driver {
         System.out.println(v1.dot(v2));
     }
 }
+
