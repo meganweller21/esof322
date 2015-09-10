@@ -11,4 +11,17 @@ rename button is grayed out. Might be a Netbeans issue.
 
     Time Spent: 75 minutes at most
 
+Ashley:
+I made the add(), dot(), and toString() methods and tests.  The methods were fairly straight forward.
+I did have some problems with some of the assert statements until I implemented them using the equals() 
+method.  I also had to Google how to write an assertEquals() for a method that returns a double; the 
+only difference was I needed to add another parameter.
+
+This was my first experience with Github, so it took a little bit of time figuring out how to clone, pull, 
+commit, and push.
+
+I also tried to rename our test package and was not able to, nor was I able to open the demo project on d2l.
+
+    Time Spent: 60 minutes
+
     
