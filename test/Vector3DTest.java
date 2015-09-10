@@ -62,14 +62,16 @@ public class Vector3DTest {
     }
     
     //Megan
-    
+    //test for equals
     @Test
     public void testEquals(){
+        //making an expected Vector
         Vector3D expVector = new Vector3D(2,4,6);
+        //making vector to test
         Vector3D vector = new Vector3D(1,2,3);
         vector = vector.scale(2);
         boolean result = expVector.equals(vector);
-       // System.out.println(result);
+        //assert that the test will be true
         assertTrue(result);
         
     }
