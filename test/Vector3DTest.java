@@ -102,18 +102,26 @@ public class Vector3DTest {
     }
        
     @Test
+    //will test the actual output to the expected output
+    //of magnitude 
        public void testMagnitude(){
         Vector3D vector1 = new Vector3D(0,0,5);
         double output = vector1.magnitude();
         double compare = 5.0;
+        
+        //testing expected values to program values
         assertTrue(output == compare);
     }
        
      @Test
+     //will test the actual output to the expected output
+    //of negate using scale by -1
         public void testNegate(){
             Vector3D vector1 = new Vector3D(1,2,3);
             Vector3D output = vector1.negate();
             Vector3D compare = new Vector3D(-1,-2,-3);
+            
+            //testing expected values to program values
             assertTrue(output.equals(compare));
         }
 }
