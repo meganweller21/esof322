@@ -1,1 +1,14 @@
-this is a text file
+Team 3: Megan Weller, Ashley Bertrand, and Sheila Tupker
+
+Megan:
+I contributed by making the constructor, the scale() method and the equals() method as well as
+the unit test for scale() and equals(). I was having problems with the equals() method
+and was using AssertEquals(). Ashley helped me solve it so I was able to get it to run
+correctly. I was also having issues with opening the demo on d2l and wasn't able to see it.
+
+We also are not able to rename the package for the Vector3DTest. For some reason, the 
+rename button is grayed out. Might be a Netbeans issue.
+
+    Time Spent: 75 minutes at most
+
+    
