@@ -6,8 +6,6 @@ the unit test for scale() and equals(). I was having problems with the equals() 
 and was using AssertEquals(). Ashley helped me solve it so I was able to get it to run
 correctly. I was also having issues with opening the demo on d2l and wasn't able to see it.
 
-We also are not able to rename the package for the Vector3DTest. For some reason, the 
-rename button is grayed out. Might be a Netbeans issue.
 
     Time Spent: 75 minutes at most
 
