@@ -30,11 +30,13 @@ public class Vector3D {
     }
     
     //Vector3D subtract Sheila
+    //formula for subtract
     public Vector3D subtract(Vector3D v){
         return new Vector3D(this.x - v.x, this.y - v.y, this.z - v.z);
     }
     
     //Vector3D negate Sheila
+    //formula for negate
     public Vector3D negate(){
         return new Vector3D(-1 * x, -1 * y, -1 * z);
     }
@@ -46,6 +48,7 @@ public class Vector3D {
     }
     
     //double magnitude Sheila
+    //formula for magnitutde
     public double magnitude(){
         return (Math.sqrt(x * x + y * y + z * z));
     }
