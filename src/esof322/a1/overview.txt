@@ -22,4 +22,28 @@ I also tried to rename our test package and was not able to, nor was I able to o
 
     Time Spent: 60 minutes
 
+Sheila:
+This was a challenging assignment for me.  
+
+We each had three methods to complete.  
+
+My methods were the following:
+negate()
+magnitude()
+scale()
+
+My experiences: 
+GitHub -
+I had never used GitHub.  There was a definite learning curve involved with this tool.  
+
+Junit - 
+I had never even heard of this tool.  Really amazing tool to compare actual and expected results.  
+
+Vectors - 
+I had never worked with vectors before and had no idea Java had a Vector3D to hold data.
+
+Overall - 
+Massive learning lesson for me.  Even though we were coding in Java knowing how to code for the vectors and the asserts took some time to figure out.  I like that the code was relatively minimal and it wasn’t too difficult to code once I got the just of what was expected.
+
+     Time spent: 180 minutes
     
