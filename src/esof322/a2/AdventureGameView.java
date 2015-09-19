@@ -5,6 +5,8 @@ import javax.swing.*;
 
 import BreezySwing.*;
 
+//This here is the GUI code - the window objects
+
 public class AdventureGameView extends GBFrame{
 
    /**
@@ -43,7 +45,7 @@ JLabel separator1 = addLabel
    JButton upButton = addButton ("Up", 12,3,1,1);
    JButton downButton = addButton ("Down", 14,3,1,1);
 
-   AdventureGameModelFacade model;
+   AdventureGameModelFacade model; //ties AdventureGameView to AdventureGameModelFacade
    
    // Constructor-----------------------------------------------
 
@@ -51,7 +53,7 @@ JLabel separator1 = addLabel
       setTitle ("Adventure Game");
       model = new AdventureGameModelFacade();
 
-      viewArea.setEditable (false);
+      viewArea.setEditable (true); // changed false to true to make editing possible
       carryingArea.setEditable (false);
       displayCurrentInfo();
    } 
@@ -107,7 +109,7 @@ JLabel separator1 = addLabel
              //  determine what items to pick up.
    }
 
-   public static void main (String[] args){
+   public static void main (String[] args){ //no call bc it is a GUI
       JFrame view = new AdventureGameView();
       view.setSize (800, 600); /* was 400, 250  */             
       view.setVisible(true);    
