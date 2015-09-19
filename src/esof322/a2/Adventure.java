@@ -109,6 +109,7 @@ public class Adventure {
      Room r6 = new Room();
      r6.setDesc("The ceiling is full of bats.\n"
     		     + "You should put your hat on your head (r6).");
+     //this room has a key, should that be added?
 
   // Room 7:
      Room r7 = new Room();
@@ -128,12 +129,14 @@ public class Adventure {
   // Room 8:
      Room r8 = new Room();
      r8.setDesc("A lizard scampers past you, or is it a snake?\n" +
-     		"a narrow passage runs to the east and an evin narrower one\n" +
+     		"a narrow passage runs to the east and an even narrower one\n" +
      		"runs to the west (r8).");
 
   // Room 9:
      Room r9 = new Room();
-     r9.setDesc("Room r9.");
+     r9.setDesc("Water drips from the ceiling as you cover your head.\n "
+             + "There is no exit from this room with only the option to turn back.\n"
+             + "Will you decide to face the maze again? (r9)");
 
   // Room 10:
      Room r10 = new Room();

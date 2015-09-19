@@ -20,6 +20,7 @@ public class Door implements CaveSite {
       passes through. */
 
   private Key myKey;
+  private String description;
 
   /** The door's location. */
   private CaveSite outSite;
@@ -32,16 +33,24 @@ public class Door implements CaveSite {
     myKey = k;
   }
 
+  public void setDesc(String d){
+      description = d;
+  }
+
+  public String getDesc(){
+	     return description;
+  }
+  
  /** A player will need the correct key to enter. */
  public void enter(Player p){
  if (p.haveItem(myKey)) {
-    System.out.println("Your key works! The door creaks open,");
-    System.out.println("and slams behind you after you pass through.");
+    myKey.setDesc("Your key works! The door creaks open," + "and slams behind you after you pass through." );
+    
     if (p.getLoc() == outSite) inSite.enter(p);
     else if (p.getLoc() == inSite) outSite.enter(p); 
  }
- else {System.out.println("You don't have the key for this door!");
-       System.out.println("Sorry.");
+ else {myKey.setDesc("You don't have the key for this door!\n" + "Sorry.");
+       
       }
  }
 

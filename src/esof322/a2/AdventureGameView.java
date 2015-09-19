@@ -4,6 +4,7 @@ import javax.swing.*;
 
 
 import BreezySwing.*;
+import java.io.IOException;
 
 //This here is the GUI code - the window objects
 
@@ -24,7 +25,7 @@ public class AdventureGameView extends GBFrame{
    JLabel viewLable = addLabel ("Your View: ",2,1,1,1);
    JTextArea viewArea = addTextArea("Start",3,1,4,3); 
 
-   JLabel carryingLable = addLabel ("You are carying: ",6,1,1,1);
+   JLabel carryingLable = addLabel ("You are carrying: ",6,1,1,1);
    JTextArea carryingArea = addTextArea("Nothing",7,1,4,3); 
 
 JLabel separator1 = addLabel
@@ -49,11 +50,15 @@ JLabel separator1 = addLabel
    
    // Constructor-----------------------------------------------
 
-   public AdventureGameView(){
+   public AdventureGameView() throws IOException{
       setTitle ("Adventure Game");
+      
+      //Where we are connecting the GUI to the Game
       model = new AdventureGameModelFacade();
+      
 
-      viewArea.setEditable (true); // changed false to true to make editing possible
+      //needs to stay false. We don't want the user to type things in the boxes.
+      viewArea.setEditable (false);
       carryingArea.setEditable (false);
       displayCurrentInfo();
    } 
@@ -99,17 +104,20 @@ JLabel separator1 = addLabel
 
     // Left as an exercise. 
    private void grab() {
+       model.grab();
+       
       //  Set up a dialog to talk to the model and
       //  determine what items to pick up.
    }
 
     // Left as an exercise. 
     private void drop() {
+        model.drop();
 	     //  Set up a dialog to talk to the model and 
              //  determine what items to pick up.
    }
 
-   public static void main (String[] args){ //no call bc it is a GUI
+   public static void main (String[] args) throws IOException{ //no call bc it is a GUI
       JFrame view = new AdventureGameView();
       view.setSize (800, 600); /* was 400, 250  */             
       view.setVisible(true);    
