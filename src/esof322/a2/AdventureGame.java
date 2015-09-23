@@ -137,68 +137,68 @@ public class AdventureGame {
    thePlayer.setRoom(startRm);
 
    /** Create the keyboard to control the game; we only need one */
-//    BufferedReader keyboard
-//	  = new BufferedReader(new InputStreamReader(System.in));
-//    String inputString = "prepare";
-//
-//    /* The main query user, get command, interpret, execute cycle. */ 
-//    while (inputString.charAt(0)!='q') {
-//       System.out.println(thePlayer.look());
-//       System.out.println("You are carrying: " +
-//			   thePlayer.showMyThings() + '\n');
-//        /* get next move */
-//	int direction = 9;
-//
-//          System.out.println("Which way (n,s,e,w,u,d)," +
-//			     " or grab (g) or toss (t) an item," +
-//			     " or quit (q)?" + '\n');
-//          inputString = keyboard.readLine(); 
-//	  System.out.println('\n');
-//	  if (inputString.equals("")) inputString = " ";
-//	  char key = inputString.charAt(0);
-//	  switch (key){
-//	   // Go
-//	     case 'n': case 'N': case 's': case 'S':
-//	     case 'e': case 'E': case 'w': case 'W':
-//	     case 'u': case 'U': case 'd': case 'D': 
-//               direction = convertDirection(inputString);
-//	       thePlayer.go(direction); 
-//               break;
-//           // Grab Item
-//	     case 'g': case 'G':
-//	       if (thePlayer.handsFull())
-//		  System.out.println("Your hands are full.");
-//               else if ((thePlayer.getLoc()).roomEmpty())
-//                       System.out.println("The room is empty."); 
-//		    else {
-//	                 Item itemToGrab =
-//	         	     choosePickupItem(thePlayer,keyboard);  
-//	                 thePlayer.pickUp(itemToGrab);
-//	                 (thePlayer.getLoc()).removeItem(itemToGrab);
-//			 }
-//	       break;
-//	   // Drop Item
-//	      case 't': case 'T':
-//	      if (thePlayer.handsEmpty())
-//		 System.out.println("You have nothing to drop.");
-//              else {
-//		    int itemToToss = 
-//			 chooseDropItem(thePlayer,keyboard);
-//	            thePlayer.drop(itemToToss);
-//		   }
-//           }
-//	} 
+    BufferedReader keyboard
+	  = new BufferedReader(new InputStreamReader(System.in));
+    String inputString = "prepare";
+
+    /* The main query user, get command, interpret, execute cycle. */ 
+    while (inputString.charAt(0)!='q') {
+       System.out.println(thePlayer.look());
+       System.out.println("You are carrying: " +
+			   thePlayer.showMyThings() + '\n');
+        /* get next move */
+	int direction = 9;
+
+          System.out.println("Which way (n,s,e,w,u,d)," +
+			     " or grab (g) or toss (t) an item," +
+			     " or quit (q)?" + '\n');
+          inputString = keyboard.readLine(); 
+	  System.out.println('\n');
+	  if (inputString.equals("")) inputString = " ";
+	  char key = inputString.charAt(0);
+	  switch (key){
+	   // Go
+	     case 'n': case 'N': case 's': case 'S':
+	     case 'e': case 'E': case 'w': case 'W':
+	     case 'u': case 'U': case 'd': case 'D': 
+               direction = convertDirection(inputString);
+	       thePlayer.go(direction); 
+               break;
+           // Grab Item
+	     case 'g': case 'G':
+	       if (thePlayer.handsFull())
+		  System.out.println("Your hands are full.");
+               else if ((thePlayer.getLoc()).roomEmpty())
+                       System.out.println("The room is empty."); 
+		    else {
+	                 Item itemToGrab =
+	         	     choosePickupItem(thePlayer,keyboard);  
+	                 thePlayer.pickUp(itemToGrab);
+	                 (thePlayer.getLoc()).removeItem(itemToGrab);
+			 }
+	       break;
+	   // Drop Item
+	      case 't': case 'T':
+	      if (thePlayer.handsEmpty())
+		 System.out.println("You have nothing to drop.");
+              else {
+		    int itemToToss = 
+			 chooseDropItem(thePlayer,keyboard);
+	            thePlayer.drop(itemToToss);
+		   }
+           }
+	} 
 
   }
-//
-//public static void main(String args[])
-// throws IOException{
-// System.out.println("Welcome to the Adventure Game,\n"
-//    + "which is inspired by an old game called the Colossal Cave Adventure.\n"
-//    + "Java implementation Copyright (c) 1999 - 2012 by James M. Bieman\n" );
-// AdventureGame theGame = new AdventureGame();
-// theGame.startQuest();
-// }
+
+public static void main(String args[])
+ throws IOException{
+ System.out.println("Welcome to the Adventure Game,\n"
+    + "which is inspired by an old game called the Colossal Cave Adventure.\n"
+    + "Java implementation Copyright (c) 1999 - 2012 by James M. Bieman\n" );
+ AdventureGame theGame = new AdventureGame();
+ theGame.startQuest();
+ }
 
 }
 
