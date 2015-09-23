@@ -12,8 +12,7 @@ public class AdventureGameModelFacade {
     Player thePlayer;
     Adventure theCave;
     Room startRm;
-    Room currentRm; 
-    Room previousRoom;
+    Room currentRm;
     int theDirection;
     boolean compareRoom; //used for change of room comparison
 
@@ -28,71 +27,48 @@ public class AdventureGameModelFacade {
     //directional buttons 
     public void goUp() {
         theDirection = 4;                    //Go UP has direction of 4
+        Room previousRoom;
         thePlayer.go(theDirection);          //moves our player in that direction
-       
-        previousRoom = currentRm;   
-        currentRm = thePlayer.getLoc();   
+        previousRoom = currentRm;           // this will hold the before value 
+        currentRm = thePlayer.getLoc();      //get location of current room
         compareRoom = (previousRoom == currentRm);
 
         //trying it without the next line of code S.T.
-        //I'm going to keep it in there,
-        //we may need it for the key implementation
-        //or we may not.. just in case type of thing
-       thePlayer.setRoom(currentRm);
+        //thePlayer.setRoom(currentRm);        //set player in the new room
     }
 
     public void goDown() {
         theDirection = 5;                     //Go DOWN has direction of 5
         thePlayer.go(theDirection);
-        
-        previousRoom = currentRm;   
-        currentRm = thePlayer.getLoc();   
-        compareRoom = (previousRoom == currentRm);
-        
-        thePlayer.setRoom(currentRm);
+        currentRm = thePlayer.getLoc();
+        //thePlayer.setRoom(currentRm);
     }
 
     public void goNorth() {
         theDirection = 0;                     //Go NORTH has direction of 0
         thePlayer.go(theDirection);
-        
-        previousRoom = currentRm;   
-        currentRm = thePlayer.getLoc();   
-        compareRoom = (previousRoom == currentRm);
-        
+        currentRm = thePlayer.getLoc();
         thePlayer.setRoom(currentRm);
     }
 
     public void goSouth() {
         theDirection = 1;                     //Go SOUTH has direction of 1
         thePlayer.go(theDirection);
-       
-        previousRoom = currentRm;   
-        currentRm = thePlayer.getLoc();   
-        compareRoom = (previousRoom == currentRm);
-        
+        currentRm = thePlayer.getLoc();
         thePlayer.setRoom(currentRm);
     }
 
     public void goEast() {
-        theDirection = 2;                   //Go EAST has direction of 2
+        theDirection = 2;                   //Go SOUTH has direction of 2
         thePlayer.go(theDirection);
-      
-        previousRoom = currentRm;   
-        currentRm = thePlayer.getLoc();   
-        compareRoom = (previousRoom == currentRm);
-       
+        currentRm = thePlayer.getLoc();
         thePlayer.setRoom(currentRm);
     }
 
     public void goWest() {
-        theDirection = 3;                 //Go WEST has direction of 3
+        theDirection = 3;                 //Go SOUTH has direction of 3
         thePlayer.go(theDirection);
-       
-        previousRoom = currentRm;   
-        currentRm = thePlayer.getLoc();   
-        compareRoom = (previousRoom == currentRm);
-        
+        currentRm = thePlayer.getLoc();
         thePlayer.setRoom(currentRm);
     }
 
@@ -102,11 +78,10 @@ public class AdventureGameModelFacade {
             currentRm = thePlayer.getLoc();   //get location of room
             return (currentRm.getDesc());      //return the description of the room
         }
-        return ("Ouch! That hurts.\n\n" + currentRm.getDesc());
+        return ("Ouch! That hurts.");
 
     }
 
-    
     public String getItems() {
 
         return ("My items: " + thePlayer.showMyThings());
