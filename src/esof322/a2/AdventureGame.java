@@ -190,15 +190,15 @@ public class AdventureGame {
 	} 
 
   }
-
-public static void main(String args[])
- throws IOException{
- System.out.println("Welcome to the Adventure Game,\n"
-    + "which is inspired by an old game called the Colossal Cave Adventure.\n"
-    + "Java implementation Copyright (c) 1999 - 2012 by James M. Bieman\n" );
- AdventureGame theGame = new AdventureGame();
- theGame.startQuest();
- }
+//
+//public static void main(String args[])
+// throws IOException{
+// System.out.println("Welcome to the Adventure Game,\n"
+//    + "which is inspired by an old game called the Colossal Cave Adventure.\n"
+//    + "Java implementation Copyright (c) 1999 - 2012 by James M. Bieman\n" );
+// AdventureGame theGame = new AdventureGame();
+// theGame.startQuest();
+// }
 
 }
 
