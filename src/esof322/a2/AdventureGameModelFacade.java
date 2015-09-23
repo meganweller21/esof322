@@ -59,14 +59,14 @@ public class AdventureGameModelFacade {
     }
 
     public void goEast() {
-        theDirection = 2;                   //Go SOUTH has direction of 2
+        theDirection = 2;                   //Go East has direction of 2
         thePlayer.go(theDirection);
         currentRm = thePlayer.getLoc();
         thePlayer.setRoom(currentRm);
     }
 
     public void goWest() {
-        theDirection = 3;                 //Go SOUTH has direction of 3
+        theDirection = 3;                 //Go West has direction of 3
         thePlayer.go(theDirection);
         currentRm = thePlayer.getLoc();
         thePlayer.setRoom(currentRm);
