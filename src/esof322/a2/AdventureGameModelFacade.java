@@ -21,7 +21,6 @@ public class AdventureGameModelFacade {
         theCave = new Adventure();
         startRm = theCave.createAdventure();
         thePlayer.setRoom(startRm);
-
     }
 
     //directional buttons 
@@ -83,16 +82,63 @@ public class AdventureGameModelFacade {
     }
 
     public String getItems() {
-
         return ("My items: " + thePlayer.showMyThings());
     }
 
+    // I'm assuming there's only one potential item to grab...is this allowed??? -A
+//    public String getItemSelection() {
+//        String items="";
+//        for (int i = 0; i < contentsArray.length; i++) {
+//                items += ((i + 1) + ": "+ contentsArray[i].getDesc());
+//            }
+//        return "The room has:" + items;
+//    }
+    
     // Surely you will need other methods to deal with
     // picking up and dropping things.
-    public void grab() {
-
+    //THIS DID HAVE A VOID RETURN TYPE, MIGHT NOT BE ALLOWED TO CHANGE? -A...Pretty Little Liars reference :)
+    public String grab() {
+        if (thePlayer.handsFull()) {
+            return "Your hands are full.";
+        } else if (thePlayer.getLoc().roomEmpty()) {
+            return "The room is empty.";
+        } else {
+            Item[] possibleItems = thePlayer.getLoc().getRoomContents();
+            Item itemToGrab = possibleItems[0];
+            thePlayer.pickUp(itemToGrab);
+            thePlayer.getLoc().removeItem(itemToGrab);
+            return itemToGrab.getDesc();
+        }
     }
 
+    //I'll get rid of this once I know for sure it is safe to assume the user won't be picking an item to grab -A
+//    public Item choosePickupItem() {
+//        String inputString = "prepare";
+//        int theChoice = -1;
+//
+//        do {
+//            getItemSelection();
+//                
+//            System.out.print("Enter the number of the item to grab: ");
+//            inputString = keyB.readLine();
+//            System.out.println('\n');
+//            if (inputString.equals("")) {
+//                inputString = " ";
+//            }
+//            try {
+//                theChoice = Integer.parseInt(inputString);
+//            } catch (NumberFormatException e) {
+//                System.out.println("Invalid input.");
+//                theChoice = -1;
+//            }
+//            if (theChoice < 0 || theChoice > contentsArray.length) {
+//                System.out.print("That item is not in the room.");
+//            }
+//        } while (theChoice < 0 || theChoice > contentsArray.length);
+//
+//        return contentsArray[theChoice - 1];
+//    }
+    
     public void drop() {
 
     }
