@@ -21,6 +21,7 @@ public class AdventureGameModelFacade {
         theCave = new Adventure();
         startRm = theCave.createAdventure();
         thePlayer.setRoom(startRm);
+        
     }
 
     //directional buttons 
@@ -85,18 +86,10 @@ public class AdventureGameModelFacade {
         return ("My items: " + thePlayer.showMyThings());
     }
 
-    // I'm assuming there's only one potential item to grab...is this allowed??? -A
-//    public String getItemSelection() {
-//        String items="";
-//        for (int i = 0; i < contentsArray.length; i++) {
-//                items += ((i + 1) + ": "+ contentsArray[i].getDesc());
-//            }
-//        return "The room has:" + items;
-//    }
-    
-    // Surely you will need other methods to deal with
-    // picking up and dropping things.
-    //THIS DID HAVE A VOID RETURN TYPE, MIGHT NOT BE ALLOWED TO CHANGE? -A...Pretty Little Liars reference :)
+    /*Assumptions -AB
+        -Player does not select what item to grab
+        -After 'Grab' is clicked, carryingArea text will not change again until 'Grab' or 'Drop' is re-clicked 
+    */
     public String grab() {
         if (thePlayer.handsFull()) {
             return "Your hands are full.";
@@ -110,37 +103,29 @@ public class AdventureGameModelFacade {
             return itemToGrab.getDesc();
         }
     }
-
-    //I'll get rid of this once I know for sure it is safe to assume the user won't be picking an item to grab -A
-//    public Item choosePickupItem() {
-//        String inputString = "prepare";
-//        int theChoice = -1;
-//
-//        do {
-//            getItemSelection();
-//                
-//            System.out.print("Enter the number of the item to grab: ");
-//            inputString = keyB.readLine();
-//            System.out.println('\n');
-//            if (inputString.equals("")) {
-//                inputString = " ";
-//            }
-//            try {
-//                theChoice = Integer.parseInt(inputString);
-//            } catch (NumberFormatException e) {
-//                System.out.println("Invalid input.");
-//                theChoice = -1;
-//            }
-//            if (theChoice < 0 || theChoice > contentsArray.length) {
-//                System.out.print("That item is not in the room.");
-//            }
-//        } while (theChoice < 0 || theChoice > contentsArray.length);
-//
-//        return contentsArray[theChoice - 1];
-//    }
     
-    public void drop() {
-
+    /*Assumptions -AB
+        -Player does not select what item to drop
+        -Player always drops one item
+        -Player always drops the first item that was collected
+        -After 'Drop' is clicked, carryingArea text will not change again until 'Drop' or 'Grab' is re-clicked  
+    */
+    public String drop() {
+        //Player had 0 items when 'Drop' was clicked
+        if (thePlayer.handsEmpty()) {
+            return "You have nothing to drop.";
+        }
+        thePlayer.drop(1);  //dropping one item
+        Item[] possibleItems = thePlayer.getLoc().getRoomContents();
+        Item itemToDrop = possibleItems[0]; //dropping first item
+        thePlayer.getLoc().addItem(itemToDrop);
+        //Player had 2 items when 'Drop' was clicked
+        //HAS NOT BEEN TESTED
+        if (thePlayer.numItemsCarried() == 2) {
+            return possibleItems[0].getDesc();
+        }
+        //Player had 1 item when 'Drop' was clicked
+        return "Nothing";
     }
 
 }

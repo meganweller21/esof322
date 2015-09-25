@@ -81,23 +81,22 @@ public class AdventureGameView extends GBFrame {
     // Private methods-------------------------------------------
     private void displayCurrentInfo() {
         viewArea.setText(model.getView());
-        carryingArea.setText(model.getItems());
+        //had to remove because it was overwriting "room is empty" and "hands are full" -AB
+        //carryingArea.setText(model.getItems());
     }
 
     // Left as an exercise. 
     private void grab() {
-        //model.grab();
-        carryingArea.setText(model.grab());
-
         //  Set up a dialog to talk to the model and
         //  determine what items to pick up.
+        carryingArea.setText(model.grab());
     }
 
     // Left as an exercise. 
     private void drop() {
-        model.drop();
         //  Set up a dialog to talk to the model and 
         //  determine what items to drop.
+        carryingArea.setText(model.drop());
     }
 
     public static void main(String[] args) throws IOException { //no call bc it is a GUI
