@@ -66,6 +66,10 @@ public class Player {
       return myThings[0].getDesc();
   }
   
+  public String getSecondItem() {
+      return myThings[1].getDesc();
+  }
+  
   public void setLoc(Room r){myLoc = r;}
 
   public Room getLoc(){return myLoc;}

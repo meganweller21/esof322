@@ -87,14 +87,20 @@ public class AdventureGameModelFacade {
     }
 
     /*Assumptions -AB
-        -Player does not select what item to grab
+        -If there is more than one item to grab, player grabs first item listed
         -After 'Grab' is clicked, carryingArea text will not change again until 'Grab' or 'Drop' is re-clicked 
     */
     public String grab() {
         if (thePlayer.handsFull()) {
-            return "Your hands are full.";
+            return thePlayer.getFirstItem() + thePlayer.getSecondItem() + " Your hands are full.";
         } else if (thePlayer.getLoc().roomEmpty()) {
-            return "The room is empty.";
+            if (thePlayer.numItemsCarried() == 2) {
+                return thePlayer.getFirstItem() + thePlayer.getSecondItem() + " The room is empty.";
+            } else if (thePlayer.numItemsCarried() == 1) {
+                return thePlayer.getFirstItem() + " The room is empty.";
+            } else {
+                return "Nothing. The room is empty.";
+            }
         } else {
             Item[] possibleItems = thePlayer.getLoc().getRoomContents();
             Item itemToGrab = possibleItems[0];
@@ -103,38 +109,35 @@ public class AdventureGameModelFacade {
             if (thePlayer.numItemsCarried() == 1) {
                 return itemToGrab.getDesc();
             } else {
-                // hard-coded in for better formatting because key's description (an immutable String)
-                // is  Your key works! The door creaks open,and slams behind you after you pass through.
-                return thePlayer.getFirstItem() + " and " + itemToGrab.getDesc();
+                return thePlayer.getFirstItem() + itemToGrab.getDesc();
             }
         }
     }
     
-    /*Assumptions -AB
-        -Player does not select what item to drop
-        -Player always drops one item
-        -Player always drops the first item that was collected
-        -After 'Drop' is clicked, carryingArea text will not change again until 'Drop' or 'Grab' is re-clicked  
+    /*Assumptions -Ashley
+        -If there is more than one item to drop, player drops first item listed
+        -After 'Drop' is clicked, carryingArea text will not change again until 'Drop' or 'Grab' is re-clicked
     */
     public String drop() {
         //Player had 0 items when 'Drop' was clicked
         if (thePlayer.handsEmpty()) {
-            return "You have nothing to drop.";
+            return "Nothing. You have nothing to drop.";
         }
+        
         String itemToDrop = thePlayer.getFirstItem();
         Item addItemToRoom = new Item();
         addItemToRoom.setDesc(itemToDrop);
         
         //Player had 2 items when 'Drop' was clicked
-        //HAS NOT BEEN TESTED
         if (thePlayer.numItemsCarried() == 2) {
             //need to check numItemsCarried before calling drop() because of different return options
             thePlayer.drop(1);
             return thePlayer.getFirstItem();
         }
-        thePlayer.drop(1);
+        
         //Player had 1 item when 'Drop' was clicked
-        return "Nothing";
+        thePlayer.drop(1);
+        return "Nothing.";
     }
-
+    
 }
