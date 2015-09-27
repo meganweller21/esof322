@@ -17,6 +17,7 @@ public class AdventureGameModelFacade {
   
     boolean compareRoom; //used for change of room comparison
     boolean door;
+    Door theDoor;
 
     int Up = 4;
     int Down = 5;
@@ -84,9 +85,12 @@ public class AdventureGameModelFacade {
         previousRoom = currentRm;           // this will hold the before value 
         currentRm = thePlayer.getLoc();      //get location of current room
         compareRoom = (previousRoom == currentRm);
+            
+//        if(thePlayer.getLoc().side[Down] == theDoor){
+//            currentRm.getDesc();
+//            theDoor.getDesc();         
+//        }
         
-        //this SOOOO doesn't work but I'm still trying
-        door = (currentRm.side[direction] == currentRm );
     }
     
     // You need to finish these getView and getItems methods.
@@ -95,14 +99,6 @@ public class AdventureGameModelFacade {
             currentRm = thePlayer.getLoc();   //get location of room
             return (currentRm.getDesc());     //return the description of the room
         }
-         else if(door){
-            return("Your key works! The door creaks open, \nand slams behind you after you pass through.\n");
-           
-         }
-         else if(!door){
-              return("You don't have the key for this door!\n Sorry.\n");
-         }
-         else
         return ("Ouch! That hurts.\n\n" + currentRm.getDesc());
     }
     
