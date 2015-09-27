@@ -49,7 +49,7 @@ public class AdventureGameView extends GBFrame {
         //Where we are connecting the GUI to the Game
         model = new AdventureGameModelFacade();
 
-        //needs to stay false. We don't want the user to type things in the boxes.
+        //needs to stay false. We don't want the user to type things in the boxes. - MW
         viewArea.setEditable(false);
         carryingArea.setEditable(false);
         displayCurrentInfo();

@@ -24,7 +24,7 @@ public class Room implements CaveSite {
 
   private String description;
 
-  private CaveSite[] side = new CaveSite[6];
+  public CaveSite[] side = new CaveSite[6];
 
   private ArrayList<Item> contents = new ArrayList<Item>();
 
@@ -56,13 +56,12 @@ public class Room implements CaveSite {
   public boolean roomEmpty(){
 	 return contents.isEmpty();
   }
-
+  
   public Item[] getRoomContents(){
    Item[] contentsArray = new Item[contents.size()];
    contentsArray = contents.toArray(contentsArray);
    return contentsArray;
   }
-
 
   public void enter(Player p) {
    p.setLoc(this); 
@@ -71,7 +70,7 @@ public class Room implements CaveSite {
   public void exit(int direction, Player p){
    side[direction].enter(p);
    }
-
+  
   public String getDesc(){
    ListIterator<Item> roomContents = contents.listIterator(); 
    String contentString = "";

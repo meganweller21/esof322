@@ -109,7 +109,7 @@ public class Adventure {
      Room r6 = new Room();
      r6.setDesc("The ceiling is full of bats.\n"
     		     + "You should put your hat on your head (r6).");
-     //this room has a key, should that be added?
+     
 
   // Room 7:
      Room r7 = new Room();
@@ -170,7 +170,7 @@ public class Adventure {
     Door theDoor = new Door(r10,r11,theKey);
     r10.setSide(5,theDoor);
     r11.setSide(4,theDoor);
-
+    
  // Now return the entrance:
     entrance = outside;
     return entrance;
