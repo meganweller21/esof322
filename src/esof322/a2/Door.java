@@ -44,7 +44,8 @@ public class Door implements CaveSite {
  /** A player will need the correct key to enter. */
  public void enter(Player p){
  if (p.haveItem(myKey)) {
-    myKey.setDesc("Your key works! The door creaks open," + "and slams behind you after you pass through." );
+     //Ashley changed for display purposes in carryingArea
+    myKey.setDesc(/*"Your key works! The door creaks open," + "and slams behind you after you pass through."*/"A shiny gold key." );
     
     if (p.getLoc() == outSite) inSite.enter(p);
     else if (p.getLoc() == inSite) outSite.enter(p); 
