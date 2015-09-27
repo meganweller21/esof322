@@ -115,14 +115,14 @@ public class AdventureGameModelFacade {
         if (thePlayer.handsEmpty()) {
             return "You have nothing to drop.";
         }
-        thePlayer.drop(1);  //dropping one item
-        Item[] possibleItems = thePlayer.getLoc().getRoomContents();
-        Item itemToDrop = possibleItems[0]; //dropping first item
-        thePlayer.getLoc().addItem(itemToDrop);
+        String itemToDrop = thePlayer.getFirstItem();
+        Item addItemToRoom = new Item();
+        addItemToRoom.setDesc(itemToDrop);
+        thePlayer.drop(1);
         //Player had 2 items when 'Drop' was clicked
         //HAS NOT BEEN TESTED
         if (thePlayer.numItemsCarried() == 2) {
-            return possibleItems[0].getDesc();
+            return thePlayer.getFirstItem();
         }
         //Player had 1 item when 'Drop' was clicked
         return "Nothing";
