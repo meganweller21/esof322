@@ -125,7 +125,13 @@ public class AdventureGameModelFacade {
             Item itemToGrab = possibleItems[0];
             thePlayer.pickUp(itemToGrab);
             thePlayer.getLoc().removeItem(itemToGrab);
-            return itemToGrab.getDesc();
+            if (thePlayer.numItemsCarried() == 1) {
+                return itemToGrab.getDesc();
+            } else {
+                // hard-coded in for better formatting because key's description (an immutable String)
+                // is  Your key works! The door creaks open,and slams behind you after you pass through.
+                return thePlayer.getFirstItem() + " and " + itemToGrab.getDesc();
+            }
         }
     }
     
@@ -140,15 +146,18 @@ public class AdventureGameModelFacade {
         if (thePlayer.handsEmpty()) {
             return "You have nothing to drop.";
         }
-        thePlayer.drop(1);  //dropping one item
-        Item[] possibleItems = thePlayer.getLoc().getRoomContents();
-        Item itemToDrop = possibleItems[0]; //dropping first item
-        thePlayer.getLoc().addItem(itemToDrop);
+        String itemToDrop = thePlayer.getFirstItem();
+        Item addItemToRoom = new Item();
+        addItemToRoom.setDesc(itemToDrop);
+        
         //Player had 2 items when 'Drop' was clicked
         //HAS NOT BEEN TESTED
         if (thePlayer.numItemsCarried() == 2) {
-            return possibleItems[0].getDesc();
+            //need to check numItemsCarried before calling drop() because of different return options
+            thePlayer.drop(1);
+            return thePlayer.getFirstItem();
         }
+        thePlayer.drop(1);
         //Player had 1 item when 'Drop' was clicked
         return "Nothing";
     }

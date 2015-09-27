@@ -61,7 +61,11 @@ public class Player {
       }
    }
    }
-
+  
+  public String getFirstItem() {
+      return myThings[0].getDesc();
+  }
+  
   public void setLoc(Room r){myLoc = r;}
 
   public Room getLoc(){return myLoc;}

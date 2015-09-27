@@ -46,13 +46,15 @@ public class Door implements CaveSite {
  if (p.haveItem(myKey)) {
     System.out.println("Your key works! The door creaks open,");
     System.out.println("and slams behind you after you pass through.");
-    door.setDesc("Your key works! The door creaks open,");
+   // door.setDesc("Your key works! The door creaks open,");
+     //Ashley changed for display purposes in carryingArea
+    myKey.setDesc(/*"Your key works! The door creaks open," + "and slams behind you after you pass through."*/"A shiny gold key." );
     if (p.getLoc() == outSite) inSite.enter(p);
     else if (p.getLoc() == inSite) outSite.enter(p); 
  }
  else {System.out.println("You don't have the key for this door!");
        System.out.println("Sorry.");    
-       door.setDesc("You don't have the key for this door!");
+       //door.setDesc("You don't have the key for this door!");
       }
  }
 
