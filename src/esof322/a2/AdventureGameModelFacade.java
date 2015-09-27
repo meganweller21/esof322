@@ -13,9 +13,21 @@ public class AdventureGameModelFacade {
     Adventure theCave;
     Room startRm;
     Room currentRm;
-    int theDirection;
+    Room previousRoom;
+  
     boolean compareRoom; //used for change of room comparison
+    boolean door;
 
+    int Up = 4;
+    int Down = 5;
+    int North = 0;
+    int South = 1;
+    int East = 2;
+    int West = 3;
+            
+         
+    int direction;
+    
     AdventureGameModelFacade() throws IOException { // we initialize
         thePlayer = new Player();
         theCave = new Adventure();
@@ -23,64 +35,77 @@ public class AdventureGameModelFacade {
         thePlayer.setRoom(startRm);
         
     }
+    
+  
 
     //directional buttons 
     public void goUp() {
-        theDirection = 4;                    //Go UP has direction of 4
-        Room previousRoom;
-        thePlayer.go(theDirection);          //moves our player in that direction
-        previousRoom = currentRm;           // this will hold the before value 
-        currentRm = thePlayer.getLoc();      //get location of current room
-        compareRoom = (previousRoom == currentRm);
-
+                         //Go UP has direction of 4
+       
+        thePlayer.go(Up);          //moves our player in that direction
+     
+        enterRoom();
+        
         //trying it without the next line of code S.T.
         //thePlayer.setRoom(currentRm);        //set player in the new room
     }
 
     public void goDown() {
-        theDirection = 5;                     //Go DOWN has direction of 5
-        thePlayer.go(theDirection);
-        currentRm = thePlayer.getLoc();
-        //thePlayer.setRoom(currentRm);
+        thePlayer.go(Down);
+        enterRoom();
     }
 
     public void goNorth() {
-        theDirection = 0;                     //Go NORTH has direction of 0
-        thePlayer.go(theDirection);
-        currentRm = thePlayer.getLoc();
-        thePlayer.setRoom(currentRm);
+                        
+        thePlayer.go(North);
+        enterRoom();
     }
 
     public void goSouth() {
-        theDirection = 1;                     //Go SOUTH has direction of 1
-        thePlayer.go(theDirection);
-        currentRm = thePlayer.getLoc();
-        thePlayer.setRoom(currentRm);
+                        
+        thePlayer.go(South);
+        enterRoom();
     }
 
     public void goEast() {
-        theDirection = 2;                   //Go East has direction of 2
-        thePlayer.go(theDirection);
-        currentRm = thePlayer.getLoc();
-        thePlayer.setRoom(currentRm);
+                       
+        thePlayer.go(East);
+        enterRoom();
     }
 
     public void goWest() {
-        theDirection = 3;                 //Go West has direction of 3
-        thePlayer.go(theDirection);
-        currentRm = thePlayer.getLoc();
-        thePlayer.setRoom(currentRm);
+                   
+        thePlayer.go(West);
+        enterRoom();
     }
 
+    
+    public void enterRoom(){
+        previousRoom = currentRm;           // this will hold the before value 
+        currentRm = thePlayer.getLoc();      //get location of current room
+        compareRoom = (previousRoom == currentRm);
+        
+        //this SOOOO doesn't work but I'm still trying
+        door = (currentRm.side[direction] == currentRm );
+    }
+    
     // You need to finish these getView and getItems methods.
     public String getView() {
-        if (!compareRoom) {
+         if (!compareRoom) {
             currentRm = thePlayer.getLoc();   //get location of room
-            return (currentRm.getDesc());      //return the description of the room
+            return (currentRm.getDesc());     //return the description of the room
         }
-        return ("Ouch! That hurts.");
-
+         else if(door){
+            return("Your key works! The door creaks open, \nand slams behind you after you pass through.\n");
+           
+         }
+         else if(!door){
+              return("You don't have the key for this door!\n Sorry.\n");
+         }
+         else
+        return ("Ouch! That hurts.\n\n" + currentRm.getDesc());
     }
+    
 
     public String getItems() {
         return ("My items: " + thePlayer.showMyThings());

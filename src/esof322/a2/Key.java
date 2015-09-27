@@ -15,5 +15,6 @@ package esof322.a2;
 // class Key.
 
 public class Key extends Item {
+    
 }
 
