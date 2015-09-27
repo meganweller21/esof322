@@ -24,7 +24,7 @@ public class AdventureGameView extends GBFrame {
     JTextArea viewArea = addTextArea("Start", 3, 1, 4, 3);
 
     JLabel carryingLable = addLabel("You are carrying: ", 6, 1, 1, 1);
-    JTextArea carryingArea = addTextArea("Nothing", 7, 1, 4, 3);
+    JTextArea carryingArea = addTextArea("Nothing.", 7, 1, 4, 3);
 
     JLabel separator1 = addLabel("-----------------------------------------------------------------", 10, 1, 4, 1);
 
@@ -81,8 +81,6 @@ public class AdventureGameView extends GBFrame {
     // Private methods-------------------------------------------
     private void displayCurrentInfo() {
         viewArea.setText(model.getView());
-        //had to remove because it was overwriting "room is empty" and "hands are full" -AB
-        //carryingArea.setText(model.getItems());
     }
 
     // Left as an exercise. 

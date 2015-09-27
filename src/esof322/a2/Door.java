@@ -1,23 +1,17 @@
 package esof322.a2;
 
-
-/**  Adventure Game  Program Code
-     Copyright (c) 1999 James M. Bieman
-
-     To compile: javac AdventureGame.java
-     To run:     java AdventureGame
-
-     The main routine is AdventureGame.main
-				    
-**/
-
+/**
+ * Adventure Game Program Code Copyright (c) 1999 James M. Bieman
+ *
+ * To compile: javac AdventureGame.java To run: java AdventureGame
+ *
+ * The main routine is AdventureGame.main
+ *
+ *
+ */
 // class Door
-
 public class Door implements CaveSite {
-  /** In this implementation doors are always locked.
-      A player must have the correct key to get through
-      a door.  Doors automatically lock after a player
-      passes through. */
+
 
   private Key myKey;
   private String description;
@@ -27,19 +21,28 @@ public class Door implements CaveSite {
   private CaveSite outSite;
   private CaveSite inSite;
 
-  public void setDesc(String d){
-    description = d;
-    }
+    /**
+     * In this implementation doors are always locked. A player must have the
+     * correct key to get through a door. Doors automatically lock after a
+     * player passes through.
+     */
   
-  public String getDesc(){
-      return description;
-  }
-  /** We can construct a door at the site. */
+     /** We can construct a door at the site. */
   Door(CaveSite out, CaveSite in, Key k){
     outSite = out;
     inSite = in;
     myKey = k;
   }
+   
+    public void setDesc(String d) {
+        description = d;
+    }
+
+  
+  public String getDesc(){
+      return description;
+  }
+ 
  
  /** A player will need the correct key to enter. */
  public void enter(Player p){
@@ -63,4 +66,3 @@ public class Door implements CaveSite {
  }
 
 }
-

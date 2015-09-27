@@ -1,1 +1,14 @@
-Ashley Bertrand, Megan Weller, Sheila Tüpker
+Ashley Bertrand and Megan Weller
+
+Ashley:
+My main responsibilities in this assignment were to implement the functionality for grab() and drop().  
+One of the hardest parts of the assignment was having to jump into a bunch of code that I was not familiar 
+with (because I didn't write it), and then making sense of all the class relationships.  At times, I found 
+it difficult trying to maintain the model/view separation for displaying the messages in accordance with 
+the current conditions.
+
+I made a few assumptions regarding the implementation of these methods (which are also listed as comments 
+in the code).  If there is more than one item that can be 'grabbed' or 'dropped', the player will grab or 
+drop the first one listed.  Also, with regards to the carryingArea display, it will always show what is 
+currently being carried, but individual messages (ie. "The room is empty.") do not get updated until the 
+next time 'grab' or 'drop' is clicked.
