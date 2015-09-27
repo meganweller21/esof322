@@ -25,7 +25,7 @@ public class AdventureGameView extends GBFrame {
 
     JLabel carryingLable = addLabel("You are carrying: ", 6, 1, 1, 1);
     JTextArea carryingArea = addTextArea("Nothing.", 7, 1, 4, 3);
-    
+
     JLabel separator1 = addLabel("-----------------------------------------------------------------", 10, 1, 4, 1);
 
     JLabel choiceLabel = addLabel("Choose a direction, pick-up, or drop an item", 11, 1, 5, 1);
