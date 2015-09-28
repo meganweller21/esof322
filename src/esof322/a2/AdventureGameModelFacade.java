@@ -20,21 +20,21 @@ public class AdventureGameModelFacade {
     //
     // These methods and fields are left as exercises.
     //initialize variables
-    Player thePlayer;
-    Adventure theCave;
-    Room startRm;
-    Room currentRm;
-    Room previousRoom;
+    private Player thePlayer;
+    private Adventure theCave;
+    private Room startRm;
+    private Room currentRm;
+    private Room previousRoom;
 
-    boolean compareRoom; //used for change of room comparison
+    private boolean compareRoom; //used for change of room comparison
 
     //variables to hold the directional value -MW
-    int up = 4;
-    int down = 5;
-    int north = 0;
-    int south = 1;
-    int east = 2;
-    int west = 3;
+    private int up = 4;
+    private int down = 5;
+    private int north = 0;
+    private int south = 1;
+    private int east = 2;
+    private int west = 3;
 
 
     AdventureGameModelFacade() throws IOException { // we initialize
