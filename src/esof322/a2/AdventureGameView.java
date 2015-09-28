@@ -22,10 +22,10 @@ public class AdventureGameView extends GBFrame {
 
     JLabel viewLable = addLabel("Your View: ", 2, 1, 1, 1);
     JTextArea viewArea = addTextArea("Start", 3, 1, 4, 3);
-
+    
     JLabel carryingLable = addLabel("You are carrying: ", 6, 1, 1, 1);
     JTextArea carryingArea = addTextArea("Nothing.", 7, 1, 4, 3);
-
+       
     JLabel separator1 = addLabel("-----------------------------------------------------------------", 10, 1, 4, 1);
 
     JLabel choiceLabel = addLabel("Choose a direction, pick-up, or drop an item", 11, 1, 5, 1);
@@ -39,7 +39,7 @@ public class AdventureGameView extends GBFrame {
     JButton westButton = addButton("West", 13, 1, 1, 1);
     JButton upButton = addButton("Up", 12, 3, 1, 1);
     JButton downButton = addButton("Down", 14, 3, 1, 1);
-
+    
     AdventureGameModelFacade model; //ties AdventureGameView to AdventureGameModelFacade
 
     // Constructor-----------------------------------------------
@@ -53,6 +53,8 @@ public class AdventureGameView extends GBFrame {
         viewArea.setEditable(false);
         carryingArea.setEditable(false);
         displayCurrentInfo();
+        
+        
     }
 
     // buttonClicked method--------------------------------------
@@ -73,8 +75,8 @@ public class AdventureGameView extends GBFrame {
             grab();
         } else if (buttonObj == dropButton) {
             drop();
-        }
-
+        } 
+      
         displayCurrentInfo();
     }
 
@@ -96,7 +98,9 @@ public class AdventureGameView extends GBFrame {
         //  determine what items to drop.
         carryingArea.setText(model.drop());
     }
-
+    
+    
+  
     public static void main(String[] args) throws IOException { //no call bc it is a GUI
         JFrame view = new AdventureGameView();
         view.setSize(800, 600); /* was 400, 250  */

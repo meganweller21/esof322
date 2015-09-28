@@ -14,8 +14,6 @@ public class Door implements CaveSite {
 
 
   private Key myKey;
-  private String description;
-  private Room theDoor;
   private Room currentRm;
   
   /** The door's location. */
@@ -35,24 +33,27 @@ public class Door implements CaveSite {
     myKey = k;
   }
   
+
  /** A player will need the correct key to enter. */
- public void enter(Player p){
+ public void enter(Player p){    
  if (p.haveItem(myKey)) {
     System.out.println("Your key works! The door creaks open,");
     System.out.println("and slams behind you after you pass through.");
-    
+     currentRm = p.getLoc();
+     currentRm.setKeyDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
     //Ashley changed for display purposes in carryingArea  
     myKey.setDesc("A shiny gold key.");
     
     if (p.getLoc() == outSite){
         inSite.enter(p);
-        description = ("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
-        
-        
+         currentRm = p.getLoc();
+         currentRm.setKeyDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
+           
     }
     else if (p.getLoc() == inSite){
         outSite.enter(p);
-        theDoor.setDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
+        currentRm = p.getLoc();
+        currentRm.setKeyDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
         
     } 
   }
@@ -60,15 +61,11 @@ public class Door implements CaveSite {
        System.out.println("Sorry.");   
        
        currentRm = p.getLoc();
-       description = currentRm.getDesc();
-       theDoor = p.getLoc();
-    
+       currentRm.setKeyDesc("You don't have the key for this door!\n Sorry.");
        
-       theDoor.setDesc("You don't have the key for this door!\n Sorry. \n");
-       theDoor.setDesc(description);
        
-      }
+    }
  
  }
-
+ 
 }

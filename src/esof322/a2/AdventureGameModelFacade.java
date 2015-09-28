@@ -16,8 +16,6 @@ public class AdventureGameModelFacade {
     Room previousRoom;
 
     boolean compareRoom; //used for change of room comparison
-    boolean door;
-    Door theDoor;
 
     int Up = 4;
     int Down = 5;
@@ -26,7 +24,6 @@ public class AdventureGameModelFacade {
     int East = 2;
     int West = 3;
 
-    int direction;
 
     AdventureGameModelFacade() throws IOException { // we initialize
         thePlayer = new Player();
@@ -37,14 +34,8 @@ public class AdventureGameModelFacade {
 
     //directional buttons 
     public void goUp() {
-        //Go UP has direction of 4
-
         thePlayer.go(Up);          //moves our player in that direction
-
         enterRoom();
-
-        //trying it without the next line of code S.T.
-        //thePlayer.setRoom(currentRm);        //set player in the new room
     }
 
     public void goDown() {
@@ -76,22 +67,27 @@ public class AdventureGameModelFacade {
         previousRoom = currentRm;           // this will hold the before value 
         currentRm = thePlayer.getLoc();      //get location of current room
         compareRoom = (previousRoom == currentRm);
-
-            
-//        if(thePlayer.getLoc().side[Down] == theDoor){
-//            currentRm.getDesc();
-//            theDoor.getDesc();         
-//        }
-       
     }
 
     // You need to finish these getView and getItems methods.
     public String getView() {
         if (!compareRoom) {
             currentRm = thePlayer.getLoc();   //get location of room
-            return (currentRm.getDesc());     //return the description of the room
+            
+            if(currentRm.getKeyDesc() == null){
+                return currentRm.getDesc();
+                
+            }else{
+            return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc());     //return the description of the room
+            }
         }
-            return ("Ouch! That hurts.\n\n" + currentRm.getDesc());
+        else if(!compareRoom && currentRm.getKeyDesc() !=null){
+            return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc()); 
+          
+        }
+        
+    
+          return ("Ouch! That hurts.\n\n" + currentRm.getDesc());
         
 
     }
@@ -156,5 +152,5 @@ public class AdventureGameModelFacade {
         thePlayer.drop(1);
         return "Nothing.";
     }
-
+    
 }

@@ -19,7 +19,7 @@ import java.util.ListIterator;
 public class Room implements CaveSite {
 
     private String description;
-
+    private String text;
     public CaveSite[] side = new CaveSite[6];
 
     private ArrayList<Item> contents = new ArrayList<Item>();
@@ -36,7 +36,7 @@ public class Room implements CaveSite {
     public void setDesc(String d) {
         description = d;
     }
-
+    
     public void setSide(int direction, CaveSite m) {
         side[direction] = m;
     }
@@ -78,5 +78,12 @@ public class Room implements CaveSite {
         return description + '\n' + '\n'
                 + "Room Contents: " + contentString + '\n';
     }
-
+    
+    public void setKeyDesc(String t){
+        text = t;
+    }
+   
+    public String getKeyDesc(){
+        return text;
+    }
 }

@@ -12,3 +12,22 @@ in the code).  If there is more than one item that can be 'grabbed' or 'dropped'
 drop the first one listed.  Also, with regards to the carryingArea display, it will always show what is 
 currently being carried, but individual messages (ie. "The room is empty.") do not get updated until the 
 next time 'grab' or 'drop' is clicked.
+
+Megan:
+My main responsibilities of the project were to a)connect the directional buttons b)connect the getView() and 
+c)show the key view.
+
+a & b) This was the easiest part of the coding for me personally. I did have to go through and find how the
+buttons were connected to the old interface and figure out how to connect them to the new GUI. It took me awhile
+to see how all the classes are related, but the UML chart helped a lot. To avoid repetition, I added a enterRoom()
+method to enter, set location, and check if the user was running into walls. 
+
+c)The key view is the most difficult part for me. I struggled with where to put the getView() and if there were
+any conditions to get that view. I was first trying to see if when they approached the door, it would distinguish
+whether is was in fact a Door versus a Room. In the end, I set the descriptions in the enter() method in class Door.
+I know that it would eventually enter that method once they approached the Door.
+
+Total Time Spent: ?
+
+*Sheila created the "Ouch! There's a wall!" implementation
+
