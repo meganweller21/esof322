@@ -15,7 +15,8 @@ public class Door implements CaveSite {
 
   private Key myKey;
   private String description;
-  Room theDoor;
+  private Room theDoor;
+  private Room currentRm;
   
   /** The door's location. */
   private CaveSite outSite;
@@ -33,36 +34,41 @@ public class Door implements CaveSite {
     inSite = in;
     myKey = k;
   }
-   
-    public void setDesc(String d) {
-        description = d;
-    }
-
   
-  public String getDesc(){
-      return description;
-  }
- 
- 
  /** A player will need the correct key to enter. */
  public void enter(Player p){
  if (p.haveItem(myKey)) {
     System.out.println("Your key works! The door creaks open,");
     System.out.println("and slams behind you after you pass through.");
-    theDoor = p.getLoc();
-    theDoor.setDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n"  + p.look());
-     //Ashley changed for display purposes in carryingArea
     
-    myKey.setDesc("A shiny gold key." );
-    if (p.getLoc() == outSite) inSite.enter(p);
-    else if (p.getLoc() == inSite) outSite.enter(p); 
- }
- else {System.out.println("You don't have the key for this door!");
+    //Ashley changed for display purposes in carryingArea  
+    myKey.setDesc("A shiny gold key.");
+    
+    if (p.getLoc() == outSite){
+        inSite.enter(p);
+        description = ("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
+        
+        
+    }
+    else if (p.getLoc() == inSite){
+        outSite.enter(p);
+        theDoor.setDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
+        
+    } 
+  }
+  else {System.out.println("You don't have the key for this door!");
        System.out.println("Sorry.");   
        
+       currentRm = p.getLoc();
+       description = currentRm.getDesc();
        theDoor = p.getLoc();
-       theDoor.setDesc("You don't have the key for this door!\n Sorry.\n" + p.look());
+    
+       
+       theDoor.setDesc("You don't have the key for this door!\n Sorry. \n");
+       theDoor.setDesc(description);
+       
       }
+ 
  }
 
 }
