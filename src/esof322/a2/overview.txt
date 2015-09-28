@@ -39,7 +39,17 @@ whether is was in fact a Door versus a Room. In the end, I set the descriptions 
 I know that it would eventually enter that method once they approached the Door. Once you are in the room, it will
 set a key description that would tell the user they are either unable to go in or they have and they are locked in.
 
+I agree with Ashley that in the beginning we should have had an initial plan and been in communication with 
+each other from the get go. The whole issue has been a big misunderstanding. If assumptions and hurtful allegations 
+were not made, I think our team would have worked out, but I believe it may be for the best that Ashley and I work
+on our own. We were able to complete the others tasks that were assigned to Sheila and the UML diagram.
+
+
 Total Time Spent: ~480 minutes
+
+Our Map:
+Our maze is based off the world of Harry Potter, but it uses the same map and commands as the original maze.
+
 
 *Sheila created the "Ouch! There's a wall!" implementation
 

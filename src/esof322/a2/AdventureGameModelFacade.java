@@ -80,7 +80,7 @@ public class AdventureGameModelFacade {
         enterRoom();
     }
     
-    /*Assumptions:
+    /*Assumptions: -MW
     Since each button is doing the same action, one method is provided to enter 
     each room.
     */
@@ -88,32 +88,35 @@ public class AdventureGameModelFacade {
     public void enterRoom() {
         previousRoom = currentRm;           // this will hold the before value 
         currentRm = thePlayer.getLoc();      //get location of current room
-        
         compareRoom = (previousRoom == currentRm);  //compares the previous room to current to see if you
                                                     //are running into a wall. 
     }
 
+    
+    /*Assumptions -MW
+    Instead of making a separate view for the Ouch! and Key, we added it to
+    the getView(). 
+    */
+   
     // You need to finish these getView and getItems methods.
     public String getView() {
-        if (!compareRoom) {
+        if (!compareRoom) {                    //if previousRoom != currentRm, aka you moved into a different room
             currentRm = thePlayer.getLoc();   //get location of room
             
-            if(currentRm.getKeyDesc() == null){
-                return currentRm.getDesc();
+            if(currentRm.getKeyDesc() == null){     //if there isn't a key description set
+                return currentRm.getDesc();         //return only the room description
                 
             }else{
-            return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc());     //return the description of the room
-            }
+            //this else catches when you enter R11 and the door slams behind you.    
+            //Otherwise, it would skip the description until the player moved a different direction    
+            return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc()); //return the key description and the
+            }                                                               //and the current room description
         }
-        if(currentRm.getKeyDesc() !=null){
-            return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc()); 
+        if(currentRm.getKeyDesc() !=null){              //if the key description isn't null
+            return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc()); //return key and room description
           
         }
-        
-    
-          return ("Ouch! That hurts.\n\n" + currentRm.getDesc());
-        
-
+        return ("Ouch! That hurts.\n\n" + currentRm.getDesc()); //return Ouch! and the current room description
     }
 
     /*Assumptions -Ashley

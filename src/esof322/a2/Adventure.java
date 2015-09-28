@@ -76,6 +76,7 @@ public class Adventure {
         Room r2 = new Room();
         r2.setDesc(
                 "You are in a gloomy oval shaped room with grey walls.\n"
+                + " \"Enemies of the heir, beware\" is written on the wall.\n"
                 + "There is a dim light to the west, and a narrow\n"
                 + "dark hole to the east only about 18 inches high (r2).");
 
@@ -98,7 +99,7 @@ public class Adventure {
         r4.setDesc("There is what looks like a giant snake skin\n"
                 + "in the corner.  Perhaps from the Basilisk?  A passage leads to\n"
                 + " the west, another one to the north, and a slippery route\n"
-                + "goes down steeply. You can hear the shrieks of bats (r4).");
+                + "goes down steeply. You can hear the shrieks of mandrakes (r4).");
 
         // Room 5:
         Room r5 = new Room();
@@ -107,8 +108,8 @@ public class Adventure {
 
         // Room 6:
         Room r6 = new Room();
-        r6.setDesc("The ceiling is full of bats.\n"
-                + "Make sure to cover your head (r6).");
+        r6.setDesc("The ceiling is full of pixies.\n"
+                + "Make sure to cover your head (r6)!");
 
         // Room 7:
         Room r7 = new Room();
@@ -135,8 +136,8 @@ public class Adventure {
         // Room 9:
         Room r9 = new Room();
         r9.setDesc("Water drips from the ceiling as you cover your head.\n "
-                + "There is no exit from this room with only the option to turn back.\n"
-                + "Will you decide to face the maze again? (r9)");
+                + "There is no exit from this room with only the option to turn back east.\n"
+                + "Will you decide to enter the chamber again? (r9)");
 
         // Room 10:
         Room r10 = new Room();
@@ -150,7 +151,7 @@ public class Adventure {
         Room r11 = new Room();
         r11.setDesc("This room is very dark. You can just barely see (r11).");
         Treasure theTreasure = new Treasure();
-        theTreasure.setDesc("A bag filled with gold bars.");
+        theTreasure.setDesc("A bag filled with shiny gold Galleons.");
         r11.addItem(theTreasure);
 
         // Lets connect them:

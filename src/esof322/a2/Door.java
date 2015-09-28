@@ -68,7 +68,7 @@ public class Door implements CaveSite {
         //Enter R11
         //Grab the current location and set the setKeyDesc() to the fact that we can open the door
          currentRm = p.getLoc();
-         currentRm.setKeyDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
+         currentRm.setKeyDesc("Wicked! Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
            
     }
     else if (p.getLoc() == inSite){
@@ -76,7 +76,7 @@ public class Door implements CaveSite {
         //Enter R10
         //Grab the current location and set the setKeyDesc() to the fact that we can open the door
         currentRm = p.getLoc();
-        currentRm.setKeyDesc("Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
+        currentRm.setKeyDesc("Wicked! Your keys works! The door creaks open,\n and slams behind you after you pass through.\n");
     } 
   }
   else {System.out.println("You don't have the key for this door!");
