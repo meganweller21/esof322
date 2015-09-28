@@ -1,4 +1,10 @@
+//Ashley Bertrand and Megan Weller
 package esof322.a2;
+
+/*We used this class for much of the key implementation code.  
+We changed many of the items' descriptions to get the necessary 
+display messages.
+*/
 
 /**
  * Adventure Game Program Code Copyright (c) 1999 James M. Bieman

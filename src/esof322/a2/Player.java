@@ -1,4 +1,9 @@
+//Ashley Bertrand and Megan Weller
 package esof322.a2;
+
+/*We added two methods getFirstItem() and getSecondItem() for formatting
+purposes in the model's implementation for grab() and drop().
+*/
 
 /**
  * Adventure Game Program Code Copyright (c) 1999 James M. Bieman
@@ -64,10 +69,13 @@ public class Player {
         }
     }
 
+    //Ashley added the following two methods for formatting purposes
+    //called in the model by grab() and drop()
     public String getFirstItem() {
         return myThings[0].getDesc();
     }
 
+    //called in the model by grab()
     public String getSecondItem() {
         return myThings[1].getDesc();
     }

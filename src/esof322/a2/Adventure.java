@@ -1,4 +1,7 @@
+//Ashley Bertrand and Megan Weller
 package esof322.a2;
+
+/*We changed many of the descriptions to make a Harry Potter themed game.*/
 
 /**
  * Adventure Game Program Code Copyright (c) 1999 James M. Bieman
@@ -52,15 +55,17 @@ public class Adventure {
         // The outside: 
         Room outside = new Room();
         outside.setDesc(
-                "You are standing outside, on the edge of a cliff;\n"
-                + " A creek runs alongside the cliff.\n"
-                + "a cave opens straight down (outside).");
+                "You are standing outside Hogwarts School of Witchcraft and\n"
+                + "Wizardry, near the Whomping Willow. You are searching\n"
+                + "for the hidden Galleons that may perhaps be in the cave that\n"
+                + "opens straight below you (outside).");
 
         // Room 1:
         Room r1 = new Room();
         r1.setDesc(
-                "The darkness is pierced by a bright light overhead.\n"
-                + "There is a narrow, dark passage to the east (r1).");
+                "Too bad this cave is not on the Marauder's Map.  You shout\n"
+                + "'Lumos' to ignite your wand, and you see there is a narrow,\n"
+                + " dark passage to the east (r1).");
 
         // Connect the outside to Room 1:
         outside.setSide(5, r1);
@@ -76,7 +81,7 @@ public class Adventure {
 
         // Room 3:
         Room r3 = new Room();
-        r3.setDesc("You really need your flashlight here. \n"
+        r3.setDesc("You really need your wand here. \n"
                 + "There is a wide passage that quickly narrows\n"
                 + "to the west, a bright opening to the east,\n"
                 + "and a deep hole that appears to have no bottom\n"
@@ -90,9 +95,9 @@ public class Adventure {
 
         // Room 4:
         Room r4 = new Room();
-        r4.setDesc("There is what looks like a giant grizzly bear\n"
-                + "skull in a corner.  A passage leads to the west,\n"
-                + "another one to the north, and a slippery route\n"
+        r4.setDesc("There is what looks like a giant snake skin\n"
+                + "in the corner.  Perhaps from the Basilisk?  A passage leads to\n"
+                + " the west, another one to the north, and a slippery route\n"
                 + "goes down steeply. You can hear the shrieks of bats (r4).");
 
         // Room 5:
@@ -103,12 +108,13 @@ public class Adventure {
         // Room 6:
         Room r6 = new Room();
         r6.setDesc("The ceiling is full of bats.\n"
-                + "You should put your hat on your head (r6).");
+                + "Make sure to cover your head (r6).");
 
         // Room 7:
         Room r7 = new Room();
         r7.setDesc("This room is very damp. There are puddles on the floor\n"
-                + "and a steady dripping from above (r7).");
+                + "and a steady dripping from above. Let's hope Moaning\n"
+                + "Myrtle didn't flood the girls' lavatory(r7).");
 
         // Connect rooms 3, 4, 5, 6, & 7.
         r3.setSide(2, r4);
@@ -122,9 +128,9 @@ public class Adventure {
 
         // Room 8:
         Room r8 = new Room();
-        r8.setDesc("A lizard scampers past you, or is it a snake?\n"
-                + "a narrow passage runs to the east and an even narrower one\n"
-                + "runs to the west (r8).");
+        r8.setDesc("Ron's rat, Scabbers runs across your foot, and woah!  Here "
+                + "comes Crookshanks chasing behind.  A narrow passage runs\n"
+                + "to the east and an even narrower one runs to the west (r8).");
 
         // Room 9:
         Room r9 = new Room();
@@ -134,11 +140,11 @@ public class Adventure {
 
         // Room 10:
         Room r10 = new Room();
-        r10.setDesc("It looks like someone has been here.\n"
-                + "There is a pile of candy wrappers on the floor,\n"
-                + "and maybe something else. \n"
-                + "Wait, there is a trap door on the floor,\n"
-                + "but it is locked (r10).");
+        r10.setDesc("It appears that someone has been here. The harp is\n"
+                + "playing to put Fluffy, the three-headed dog asleep.\n"
+                + "Oh wait!  It looks like Fluffy is gaurding something.\n"
+                + "There's a trap door on the floor, but it is locked.\n"
+                + "'Alohomora' won't help you here, you need a key (r10).");
 
         // Room 11:
         Room r11 = new Room();

@@ -1,4 +1,9 @@
+//Ashley Bertrand and Megan Weller
 package esof322.a2;
+
+/*We used the view to display information in textAreas by calling 
+methods on an instance of the model class.
+*/
 
 import javax.swing.*;
 
@@ -53,8 +58,6 @@ public class AdventureGameView extends GBFrame {
         viewArea.setEditable(false);
         carryingArea.setEditable(false);
         displayCurrentInfo();
-        
-        
     }
 
     // buttonClicked method--------------------------------------
@@ -99,8 +102,6 @@ public class AdventureGameView extends GBFrame {
         carryingArea.setText(model.drop());
     }
     
-    
-  
     public static void main(String[] args) throws IOException { //no call bc it is a GUI
         JFrame view = new AdventureGameView();
         view.setSize(800, 600); /* was 400, 250  */

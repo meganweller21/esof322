@@ -1,4 +1,9 @@
+//Ashley Bertrand and Megan Weller
 package esof322.a2;
+
+/*Two methods were added to this class for accessibility purposes of 
+obtaining the key's description.
+*/
 
 /**
  * Adventure Game Program Code Copyright (c) 1999 James M. Bieman

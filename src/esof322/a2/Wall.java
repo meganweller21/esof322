@@ -1,3 +1,4 @@
+//Ashley Bertrand and Megan Weller
 package esof322.a2;
 
 /**

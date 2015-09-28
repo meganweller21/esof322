@@ -13,6 +13,17 @@ drop the first one listed.  Also, with regards to the carryingArea display, it w
 currently being carried, but individual messages (ie. "The room is empty.") do not get updated until the 
 next time 'grab' or 'drop' is clicked.
 
+For formatting purposes, I added two methods in the Player class.  I also decided to make the game and room 
+descriptions a little more interesting by spreading my love for Harry Potter.
+
+The most difficult part about finishing this assignment was due to our team falling apart towards the beginning
+of the project.  Initially, our problems arose from a lack of communication/assignment delegation, but grew to
+more serious issues involving incorrect allegations and hurtful accusations, where Megan and I decided we could
+no longer work in such an environment.  We were able to pick up from where we left off on our individual work
+and make up for the loss of a teammate to finish the assignment ourselves.
+
+Total Time Spent: ~600 minutes
+
 Megan:
 My main responsibilities of the project were to a)connect the directional buttons b)connect the getView() and 
 c)show the key view.
@@ -31,4 +42,7 @@ set a key description that would tell the user they are either unable to go in o
 Total Time Spent: ~480 minutes
 
 *Sheila created the "Ouch! There's a wall!" implementation
+
+Transcript of commit log:
+
 

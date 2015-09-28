@@ -1,10 +1,11 @@
+//Ashley Bertrand and Megan Weller
 package esof322.a2;
 
 import java.io.IOException;
 
 /* Most of our implementation of code is in this class.
 We connected the Facade in the GUI with the directional buttons,
-getView(), getItems(), grab(), and drop().
+getView(), grab(), and drop().
 
 We took the Player thePlayer, and Adventure theCave from the original
 user interface and created the game in the Constructor 
@@ -28,12 +29,12 @@ public class AdventureGameModelFacade {
     boolean compareRoom; //used for change of room comparison
 
     //variables to hold the directional value -MW
-    int Up = 4;
-    int Down = 5;
-    int North = 0;
-    int South = 1;
-    int East = 2;
-    int West = 3;
+    int up = 4;
+    int down = 5;
+    int north = 0;
+    int south = 1;
+    int east = 2;
+    int west = 3;
 
 
     AdventureGameModelFacade() throws IOException { // we initialize
@@ -50,32 +51,32 @@ public class AdventureGameModelFacade {
     */
     
     public void goUp() {
-        thePlayer.go(Up);
+        thePlayer.go(up);
         enterRoom();
     }
 
     public void goDown() {
-        thePlayer.go(Down);
+        thePlayer.go(down);
         enterRoom();
     }
 
     public void goNorth() {
-        thePlayer.go(North);
+        thePlayer.go(north);
         enterRoom();
     }
 
     public void goSouth() {
-        thePlayer.go(South);
+        thePlayer.go(south);
         enterRoom();
     }
 
     public void goEast() {
-        thePlayer.go(East);
+        thePlayer.go(east);
         enterRoom();
     }
 
     public void goWest() {
-        thePlayer.go(West);
+        thePlayer.go(west);
         enterRoom();
     }
     
@@ -115,10 +116,6 @@ public class AdventureGameModelFacade {
 
     }
 
-    public String getItems() {
-        return ("My items: " + thePlayer.showMyThings());
-    }
-
     /*Assumptions -Ashley
      -If there is more than one item to grab, player grabs first item listed
      -After 'Grab' is clicked, carryingArea text will not change again until 'Grab' or 'Drop' is next clicked 
@@ -126,26 +123,34 @@ public class AdventureGameModelFacade {
     public String grab() {
         //Cannot grab anything because Player is already holding two items
         if (thePlayer.handsFull()) {
-            return thePlayer.getFirstItem() + thePlayer.getSecondItem() + " Your hands are full.";
+            return thePlayer.getFirstItem() + " " +  thePlayer.getSecondItem() + " Your hands are full.";
+        
         //Player has nothing to grab because the room is empty
         } else if (thePlayer.getLoc().roomEmpty()) {
+            //Player has two items
             if (thePlayer.numItemsCarried() == 2) {
-                return thePlayer.getFirstItem() + thePlayer.getSecondItem() + " The room is empty.";
+                return thePlayer.getFirstItem() + " " +  thePlayer.getSecondItem() + " The room is empty.";
+            //Player has one item
             } else if (thePlayer.numItemsCarried() == 1) {
                 return thePlayer.getFirstItem() + " The room is empty.";
+            //Player has not items
             } else {
                 return "Nothing. The room is empty.";
             }
+        
         //Player grabs an item
         } else {
             Item[] possibleItems = thePlayer.getLoc().getRoomContents();
             Item itemToGrab = possibleItems[0];
+            //Picking up the first item
             thePlayer.pickUp(itemToGrab);
             thePlayer.getLoc().removeItem(itemToGrab);
+            //Player has one item
             if (thePlayer.numItemsCarried() == 1) {
                 return itemToGrab.getDesc();
+            //Player has two items
             } else {
-                return thePlayer.getFirstItem() + itemToGrab.getDesc();
+                return thePlayer.getFirstItem() + " " +  itemToGrab.getDesc();
             }
         }
     }
@@ -160,6 +165,7 @@ public class AdventureGameModelFacade {
             return "Nothing. You have nothing to drop.";
         }
 
+        //Dropping the first item
         String itemToDrop = thePlayer.getFirstItem();
         Item addItemToRoom = new Item();
         addItemToRoom.setDesc(itemToDrop);
