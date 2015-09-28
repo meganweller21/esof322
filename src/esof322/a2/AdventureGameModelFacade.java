@@ -2,6 +2,16 @@ package esof322.a2;
 
 import java.io.IOException;
 
+/* Most of our implementation of code is in this class.
+We connected the Facade in the GUI with the directional buttons,
+getView(), getItems(), grab(), and drop().
+
+We took the Player thePlayer, and Adventure theCave from the original
+user interface and created the game in the Constructor 
+
+*/
+
+
 public class AdventureGameModelFacade {
 
     // some private fields to reference current location,
@@ -17,6 +27,7 @@ public class AdventureGameModelFacade {
 
     boolean compareRoom; //used for change of room comparison
 
+    //variables to hold the directional value -MW
     int Up = 4;
     int Down = 5;
     int North = 0;
@@ -32,9 +43,14 @@ public class AdventureGameModelFacade {
         thePlayer.setRoom(startRm);
     }
 
-    //directional buttons 
+    //Assumptions -MW
+    /* I am assuming that each direction holds a certain value (0-5) that will
+    correlate with a direction that will later come in use for Adventure when
+    creating the map. 
+    */
+    
     public void goUp() {
-        thePlayer.go(Up);          //moves our player in that direction
+        thePlayer.go(Up);
         enterRoom();
     }
 
@@ -62,11 +78,18 @@ public class AdventureGameModelFacade {
         thePlayer.go(West);
         enterRoom();
     }
+    
+    /*Assumptions:
+    Since each button is doing the same action, one method is provided to enter 
+    each room.
+    */
 
     public void enterRoom() {
         previousRoom = currentRm;           // this will hold the before value 
         currentRm = thePlayer.getLoc();      //get location of current room
-        compareRoom = (previousRoom == currentRm);
+        
+        compareRoom = (previousRoom == currentRm);  //compares the previous room to current to see if you
+                                                    //are running into a wall. 
     }
 
     // You need to finish these getView and getItems methods.
@@ -81,7 +104,7 @@ public class AdventureGameModelFacade {
             return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc());     //return the description of the room
             }
         }
-        else if(!compareRoom && currentRm.getKeyDesc() !=null){
+        if(currentRm.getKeyDesc() !=null){
             return (currentRm.getKeyDesc() + "\n\n" + currentRm.getDesc()); 
           
         }

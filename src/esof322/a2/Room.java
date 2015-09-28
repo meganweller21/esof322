@@ -10,6 +10,10 @@ package esof322.a2;
  * Update August 2010: refactored Vector contents into ArrayList<Item> contents.
  * This gets rid of the use of obsolete Vector and makes it type safe.
  *
+ * 
+ * 
+ * We added a String key and a get and set method for the key description when
+ * you are trying to enter a locked door while you are in room 10 and room 11. 
  *
  */
 // class Room
@@ -19,7 +23,7 @@ import java.util.ListIterator;
 public class Room implements CaveSite {
 
     private String description;
-    private String text;
+    private String key;
     public CaveSite[] side = new CaveSite[6];
 
     private ArrayList<Item> contents = new ArrayList<Item>();
@@ -79,11 +83,15 @@ public class Room implements CaveSite {
                 + "Room Contents: " + contentString + '\n';
     }
     
-    public void setKeyDesc(String t){
-        text = t;
+    /*I had to add two new methods to set the currentRoom key description.
+    I tried many different ways to grab the key description, but the easiest
+    was to create it's own set and get field. -MW
+    */
+    public void setKeyDesc(String k){
+        key = k;
     }
    
     public String getKeyDesc(){
-        return text;
+        return key;
     }
 }

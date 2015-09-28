@@ -25,9 +25,10 @@ method to enter, set location, and check if the user was running into walls.
 c)The key view is the most difficult part for me. I struggled with where to put the getView() and if there were
 any conditions to get that view. I was first trying to see if when they approached the door, it would distinguish
 whether is was in fact a Door versus a Room. In the end, I set the descriptions in the enter() method in class Door.
-I know that it would eventually enter that method once they approached the Door.
+I know that it would eventually enter that method once they approached the Door. Once you are in the room, it will
+set a key description that would tell the user they are either unable to go in or they have and they are locked in.
 
-Total Time Spent: ?
+Total Time Spent: ~480 minutes
 
 *Sheila created the "Ouch! There's a wall!" implementation
 
