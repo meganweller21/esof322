@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Vector3D.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Team_03&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">esof322.a1</a> &gt; <span class="el_source">Vector3D.java</span></div><h1>Vector3D.java</h1><pre class="source lang-java linenums">package esof322.a1;
+
+/**
+ * Team 03
+ *
+ * @author Megan Weller, Ashley Bertrand, Sheila Tupker
+ */
+public class Vector3D {
+    private double x;
+    private double y;
+    private double z;
+
+    //constructor Megan
+<span class="fc" id="L14">    public Vector3D(double x, double y, double z) {</span>
+<span class="fc" id="L15">        this.x = x;</span>
+<span class="fc" id="L16">        this.y = y;</span>
+<span class="fc" id="L17">        this.z = z;</span>
+<span class="fc" id="L18">    }</span>
+
+    //Vector3D scale Megan
+    public Vector3D scale(double f) {
+<span class="fc" id="L22">        Vector3D v = new Vector3D(this.x * f, this.y * f, this.z * f);</span>
+<span class="fc" id="L23">        return v;</span>
+
+    }
+
+    //Vector3D add Ashley
+    //formula for add
+    public Vector3D add(Vector3D v) {
+<span class="fc" id="L30">        return new Vector3D(this.x + v.x, this.y + v.y, this.z + v.z);</span>
+    }
+
+    //Vector3D subtract Sheila
+    //formula for subtract
+    public Vector3D subtract(Vector3D v) {
+<span class="fc" id="L36">        return new Vector3D(this.x - v.x, this.y - v.y, this.z - v.z);</span>
+    }
+
+    //Vector3D negate Sheila
+    //formula for negate
+    public Vector3D negate() {
+<span class="fc" id="L42">        return new Vector3D(-1 * x, -1 * y, -1 * z);</span>
+    }
+
+    //double dot Ashley
+    //formula for dot product
+    public double dot(Vector3D v) {
+<span class="fc" id="L48">        return ((this.x * v.x) + (this.y * v.y) + (this.z * v.z));</span>
+    }
+
+    //double magnitude Sheila
+    //formula for magnitutde
+    public double magnitude() {
+<span class="fc" id="L54">        return (Math.sqrt(x * x + y * y + z * z));</span>
+    }
+
+    //toString Ashley
+    //overrides an object's toString() method
+    @Override
+    public String toString() {
+<span class="fc" id="L61">        return &quot;{&quot; + this.x + &quot;, &quot; + this.y + &quot;, &quot; + this.z + &quot;}&quot;;</span>
+    }
+
+    //implementation of equals Megan 
+    public boolean equals(Vector3D v) {
+<span class="pc bpc" id="L66" title="2 of 4 branches missed.">        if (this == null || v == null) {</span>
+<span class="nc" id="L67">            return false;</span>
+        }
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (this.x != v.x) {</span>
+<span class="nc" id="L70">            return false;</span>
+        }
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if (this.y != v.y) {</span>
+<span class="nc" id="L73">            return false;</span>
+        }
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">        if (this.z != v.z) {</span>
+<span class="nc" id="L76">            return false;</span>
+        }
+
+<span class="fc" id="L79">        return true;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

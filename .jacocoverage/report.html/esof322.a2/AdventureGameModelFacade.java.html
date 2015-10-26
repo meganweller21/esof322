@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AdventureGameModelFacade.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Team_03&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">esof322.a2</a> &gt; <span class="el_source">AdventureGameModelFacade.java</span></div><h1>AdventureGameModelFacade.java</h1><pre class="source lang-java linenums">//Ashley Bertrand and Megan Weller
+package esof322.a2;
+
+import java.io.IOException;
+
+/* Most of our implementation of code is in this class.
+We connected the Facade in the GUI with the directional buttons,
+getView(), grab(), and drop().
+
+We took the Player thePlayer, and Adventure theCave from the original
+user interface and created the game in the Constructor 
+
+*/
+
+
+public class AdventureGameModelFacade {
+
+    // some private fields to reference current location,
+    // its description, what I'm carrying, etc.
+    //
+    // These methods and fields are left as exercises.
+    //initialize variables
+    private Player thePlayer;
+    private Adventure theCave;
+    private Room startRm;
+    private Room currentRm;
+    private Room previousRoom;
+
+    private boolean compareRoom; //used for change of room comparison
+
+    //variables to hold the directional value -MW
+<span class="nc" id="L32">    private int up = 4;</span>
+<span class="nc" id="L33">    private int down = 5;</span>
+<span class="nc" id="L34">    private int north = 0;</span>
+<span class="nc" id="L35">    private int south = 1;</span>
+<span class="nc" id="L36">    private int east = 2;</span>
+<span class="nc" id="L37">    private int west = 3;</span>
+
+
+<span class="nc" id="L40">    AdventureGameModelFacade() throws IOException { // we initialize</span>
+<span class="nc" id="L41">        thePlayer = new Player();</span>
+<span class="nc" id="L42">        theCave = new Adventure();</span>
+<span class="nc" id="L43">        startRm = theCave.createAdventure();</span>
+<span class="nc" id="L44">        thePlayer.setRoom(startRm);</span>
+<span class="nc" id="L45">    }</span>
+
+    //Assumptions -MW
+    /* I am assuming that each direction holds a certain value (0-5) that will
+    correlate with a direction that will later come in use for Adventure when
+    creating the map. 
+    */
+    
+    public void goUp() {
+<span class="nc" id="L54">        thePlayer.go(up);</span>
+<span class="nc" id="L55">        enterRoom();</span>
+<span class="nc" id="L56">    }</span>
+
+    public void goDown() {
+<span class="nc" id="L59">        thePlayer.go(down);</span>
+<span class="nc" id="L60">        enterRoom();</span>
+<span class="nc" id="L61">    }</span>
+
+    public void goNorth() {
+<span class="nc" id="L64">        thePlayer.go(north);</span>
+<span class="nc" id="L65">        enterRoom();</span>
+<span class="nc" id="L66">    }</span>
+
+    public void goSouth() {
+<span class="nc" id="L69">        thePlayer.go(south);</span>
+<span class="nc" id="L70">        enterRoom();</span>
+<span class="nc" id="L71">    }</span>
+
+    public void goEast() {
+<span class="nc" id="L74">        thePlayer.go(east);</span>
+<span class="nc" id="L75">        enterRoom();</span>
+<span class="nc" id="L76">    }</span>
+
+    public void goWest() {
+<span class="nc" id="L79">        thePlayer.go(west);</span>
+<span class="nc" id="L80">        enterRoom();</span>
+<span class="nc" id="L81">    }</span>
+    
+    /*Assumptions: -MW
+    Since each button is doing the same action, one method is provided to enter 
+    each room.
+    */
+
+    public void enterRoom() {
+<span class="nc" id="L89">        previousRoom = currentRm;           // this will hold the before value </span>
+<span class="nc" id="L90">        currentRm = thePlayer.getLoc();      //get location of current room</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        compareRoom = (previousRoom == currentRm);  //compares the previous room to current to see if you</span>
+                                                    //are running into a wall. 
+<span class="nc" id="L93">    }</span>
+
+    
+    /*Assumptions -MW
+    Instead of making a separate view for the Ouch! and Key, we added it to
+    the getView(). 
+    */
+   
+    // You need to finish these getView and getItems methods.
+    public String getView() {
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        if (!compareRoom) {                    //if previousRoom != currentRm, aka you moved into a different room</span>
+<span class="nc" id="L104">            currentRm = thePlayer.getLoc();   //get location of room</span>
+            
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            if(currentRm.getKeyDesc() == null){     //if there isn't a key description set</span>
+<span class="nc" id="L107">                return currentRm.getDesc();         //return only the room description</span>
+                
+            }else{
+            //this else catches when you enter R11 and the door slams behind you.    
+            //Otherwise, it would skip the description until the player moved a different direction    
+<span class="nc" id="L112">            return (currentRm.getKeyDesc() + &quot;\n\n&quot; + currentRm.getDesc()); //return the key description and the</span>
+            }                                                               //and the current room description
+        }
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        if(currentRm.getKeyDesc() !=null){              //if the key description isn't null</span>
+<span class="nc" id="L116">            return (currentRm.getKeyDesc() + &quot;\n\n&quot; + currentRm.getDesc()); //return key and room description</span>
+          
+        }
+<span class="nc" id="L119">        return (&quot;Ouch! That hurts.\n\n&quot; + currentRm.getDesc()); //return Ouch! and the current room description</span>
+    }
+
+    /*Assumptions -Ashley
+     -If there is more than one item to grab, player grabs first item listed
+     -After 'Grab' is clicked, carryingArea text will not change again until 'Grab' or 'Drop' is next clicked 
+     */
+    public String grab() {
+        //Cannot grab anything because Player is already holding two items
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        if (thePlayer.handsFull()) {</span>
+<span class="nc" id="L129">            return thePlayer.getFirstItem() + &quot; &quot; +  thePlayer.getSecondItem() + &quot; Your hands are full.&quot;;</span>
+        
+        //Player has nothing to grab because the room is empty
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        } else if (thePlayer.getLoc().roomEmpty()) {</span>
+            //Player has two items
+<span class="nc bnc" id="L134" title="All 2 branches missed.">            if (thePlayer.numItemsCarried() == 2) {</span>
+<span class="nc" id="L135">                return thePlayer.getFirstItem() + &quot; &quot; +  thePlayer.getSecondItem() + &quot; The room is empty.&quot;;</span>
+            //Player has one item
+<span class="nc bnc" id="L137" title="All 2 branches missed.">            } else if (thePlayer.numItemsCarried() == 1) {</span>
+<span class="nc" id="L138">                return thePlayer.getFirstItem() + &quot; The room is empty.&quot;;</span>
+            //Player has not items
+            } else {
+<span class="nc" id="L141">                return &quot;Nothing. The room is empty.&quot;;</span>
+            }
+        
+        //Player grabs an item
+        } else {
+<span class="nc" id="L146">            Item[] possibleItems = thePlayer.getLoc().getRoomContents();</span>
+<span class="nc" id="L147">            Item itemToGrab = possibleItems[0];</span>
+            //Picking up the first item
+<span class="nc" id="L149">            thePlayer.pickUp(itemToGrab);</span>
+<span class="nc" id="L150">            thePlayer.getLoc().removeItem(itemToGrab);</span>
+            //Player has one item
+<span class="nc bnc" id="L152" title="All 2 branches missed.">            if (thePlayer.numItemsCarried() == 1) {</span>
+<span class="nc" id="L153">                return itemToGrab.getDesc();</span>
+            //Player has two items
+            } else {
+<span class="nc" id="L156">                return thePlayer.getFirstItem() + &quot; &quot; +  itemToGrab.getDesc();</span>
+            }
+        }
+    }
+
+    /*Assumptions -Ashley
+     -If there is more than one item to drop, player drops first item listed
+     -After 'Drop' is clicked, carryingArea text will not change again until 'Drop' or 'Grab' is next clicked
+     */
+    public String drop() {
+        //Player had 0 items before 'Drop' was clicked
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (thePlayer.handsEmpty()) {</span>
+<span class="nc" id="L168">            return &quot;Nothing. You have nothing to drop.&quot;;</span>
+        }
+
+        //Dropping the first item
+<span class="nc" id="L172">        String itemToDrop = thePlayer.getFirstItem();</span>
+<span class="nc" id="L173">        Item addItemToRoom = new Item();</span>
+<span class="nc" id="L174">        addItemToRoom.setDesc(itemToDrop);</span>
+
+        //Player had 2 items before 'Drop' was clicked
+<span class="nc bnc" id="L177" title="All 2 branches missed.">        if (thePlayer.numItemsCarried() == 2) {</span>
+            //need to check numItemsCarried before calling drop() because of different return options
+<span class="nc" id="L179">            thePlayer.drop(1);</span>
+<span class="nc" id="L180">            return thePlayer.getFirstItem();</span>
+        }
+
+        //Player had 1 item before 'Drop' was clicked
+<span class="nc" id="L184">        thePlayer.drop(1);</span>
+<span class="nc" id="L185">        return &quot;Nothing.&quot;;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

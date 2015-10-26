@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Adventure.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Team_03&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">esof322.a2</a> &gt; <span class="el_source">Adventure.java</span></div><h1>Adventure.java</h1><pre class="source lang-java linenums">//Ashley Bertrand and Megan Weller
+package esof322.a2;
+
+/*We changed many of the descriptions to make a Harry Potter themed game.*/
+
+/**
+ * Adventure Game Program Code Copyright (c) 1999 James M. Bieman
+ *
+ * To compile: javac AdventureGame.java To run: java AdventureGame
+ *
+ * The main routine is AdventureGame.main
+ *
+ *
+ */
+/**
+ * Adventure Game Program Code Copyright (c) 1999-2012 James M. Bieman The
+ * Adventure game is based on the &quot;Colossal Cave Adventure&quot; originally designed
+ * by Will Crowther and implemented by Will Crowther and Don Wood in Fortran in
+ * 1975 and 1976.
+ *
+ * This micro-version is a variant of the original cave system and is
+ * implemented in Java with just a few rooms and with a much more limited
+ * vocabulary.
+ *
+ * Updated August 2010, January 2012 - Code is put into package cs314.a2 to
+ * match current CS314 coding standards. Updated January 2012 - Renamed as the
+ * &quot;Adventure Game&quot;
+ *
+ * To compile: javac cs314.a2.AdventureGame.java To run: java
+ * cs314.a2.AdventureGame
+ *
+ * The main routine is AdventureGame.main
+ *
+ *
+ */
+/**
+ * class Adventure: Primary method, createCave, creates the cave system. It
+ * eventually be replaced with a more flexible mechanism to support input and
+ * output from devices other than an ASCII terminal.
+ *
+ * Room descriptions are followed by a room identifier, to ease debugging and
+ * testing. These would be removed to help confuse the user, which is our
+ * ultimate aim.
+ *
+ * I haven't added all of the room descriptions. They will be done later.
+ *
+ * In this version all I/O is through standard I/O; I/O is to and from the
+ * console.  *
+ */
+<span class="nc" id="L50">public class Adventure {</span>
+
+    private Room entrance;
+
+    public Room createAdventure() {
+        // The outside: 
+<span class="nc" id="L56">        Room outside = new Room();</span>
+<span class="nc" id="L57">        outside.setDesc(</span>
+                &quot;You are standing outside Hogwarts School of Witchcraft and\n&quot;
+                + &quot;Wizardry, near the Whomping Willow. You are searching\n&quot;
+                + &quot;for the hidden Galleons that may perhaps be in the cave that\n&quot;
+                + &quot;opens straight below you (outside).&quot;);
+
+        // Room 1:
+<span class="nc" id="L64">        Room r1 = new Room();</span>
+<span class="nc" id="L65">        r1.setDesc(</span>
+                &quot;Too bad this cave is not on the Marauder's Map.  You shout\n&quot;
+                + &quot;'Lumos' to ignite your wand, and you see there is a narrow,\n&quot;
+                + &quot; dark passage to the east (r1).&quot;);
+
+        // Connect the outside to Room 1:
+<span class="nc" id="L71">        outside.setSide(5, r1);</span>
+<span class="nc" id="L72">        r1.setSide(4, outside);</span>
+<span class="nc" id="L73">        entrance = outside;</span>
+
+        // Room 2:
+<span class="nc" id="L76">        Room r2 = new Room();</span>
+<span class="nc" id="L77">        r2.setDesc(</span>
+                &quot;You are in a gloomy oval shaped room with grey walls.\n&quot;
+                + &quot; \&quot;Enemies of the heir, beware\&quot; is written on the wall.\n&quot;
+                + &quot;There is a dim light to the west, and a narrow\n&quot;
+                + &quot;dark hole to the east only about 18 inches high (r2).&quot;);
+
+        // Room 3:
+<span class="nc" id="L84">        Room r3 = new Room();</span>
+<span class="nc" id="L85">        r3.setDesc(&quot;You really need your wand here. \n&quot;</span>
+                + &quot;There is a wide passage that quickly narrows\n&quot;
+                + &quot;to the west, a bright opening to the east,\n&quot;
+                + &quot;and a deep hole that appears to have no bottom\n&quot;
+                + &quot;in the middle of the room (r3).&quot;);
+
+        // Connect Rooms 1, 2, &amp; 3:
+<span class="nc" id="L92">        r1.setSide(2, r2);</span>
+<span class="nc" id="L93">        r2.setSide(3, r1);</span>
+<span class="nc" id="L94">        r2.setSide(2, r3);</span>
+<span class="nc" id="L95">        r3.setSide(3, r2);</span>
+
+        // Room 4:
+<span class="nc" id="L98">        Room r4 = new Room();</span>
+<span class="nc" id="L99">        r4.setDesc(&quot;There is what looks like a giant snake skin\n&quot;</span>
+                + &quot;in the corner.  Perhaps from the Basilisk?  A passage leads to\n&quot;
+                + &quot; the west, another one to the north, and a slippery route\n&quot;
+                + &quot;goes down steeply. You can hear the shrieks of mandrakes (r4).&quot;);
+
+        // Room 5:
+<span class="nc" id="L105">        Room r5 = new Room();</span>
+<span class="nc" id="L106">        r5.setDesc(&quot;There is a dim light from above and the shrieks\n&quot;</span>
+                + &quot;are clearly coming from a passageway to the east (r5).&quot;);
+
+        // Room 6:
+<span class="nc" id="L110">        Room r6 = new Room();</span>
+<span class="nc" id="L111">        r6.setDesc(&quot;The ceiling is full of pixies.\n&quot;</span>
+                + &quot;Make sure to cover your head (r6)!&quot;);
+
+        // Room 7:
+<span class="nc" id="L115">        Room r7 = new Room();</span>
+<span class="nc" id="L116">        r7.setDesc(&quot;This room is very damp. There are puddles on the floor\n&quot;</span>
+                + &quot;and a steady dripping from above. Let's hope Moaning\n&quot;
+                + &quot;Myrtle didn't flood the girls' lavatory(r7).&quot;);
+
+        // Connect rooms 3, 4, 5, 6, &amp; 7.
+<span class="nc" id="L121">        r3.setSide(2, r4);</span>
+<span class="nc" id="L122">        r3.setSide(5, r5);</span>
+<span class="nc" id="L123">        r4.setSide(3, r3);</span>
+<span class="nc" id="L124">        r4.setSide(5, r7);</span>
+<span class="nc" id="L125">        r5.setSide(4, r3);</span>
+<span class="nc" id="L126">        r5.setSide(2, r6);</span>
+<span class="nc" id="L127">        r6.setSide(3, r5);</span>
+<span class="nc" id="L128">        r7.setSide(4, r4);</span>
+
+        // Room 8:
+<span class="nc" id="L131">        Room r8 = new Room();</span>
+<span class="nc" id="L132">        r8.setDesc(&quot;Ron's rat, Scabbers runs across your foot, and woah!  Here &quot;</span>
+                + &quot;comes Crookshanks chasing behind.  A narrow passage runs\n&quot;
+                + &quot;to the east and an even narrower one runs to the west (r8).&quot;);
+
+        // Room 9:
+<span class="nc" id="L137">        Room r9 = new Room();</span>
+<span class="nc" id="L138">        r9.setDesc(&quot;Water drips from the ceiling as you cover your head.\n &quot;</span>
+                + &quot;There is no exit from this room with only the option to turn back east.\n&quot;
+                + &quot;Will you decide to enter the chamber again? (r9)&quot;);
+
+        // Room 10:
+<span class="nc" id="L143">        Room r10 = new Room();</span>
+<span class="nc" id="L144">        r10.setDesc(&quot;It appears that someone has been here. The harp is\n&quot;</span>
+                + &quot;playing to put Fluffy, the three-headed dog asleep.\n&quot;
+                + &quot;Oh wait!  It looks like Fluffy is gaurding something.\n&quot;
+                + &quot;There's a trap door on the floor, but it is locked.\n&quot;
+                + &quot;'Alohomora' won't help you here, you need a key (r10).&quot;);
+
+        // Room 11:
+<span class="nc" id="L151">        Room r11 = new Room();</span>
+<span class="nc" id="L152">        r11.setDesc(&quot;This room is very dark. You can just barely see (r11).&quot;);</span>
+<span class="nc" id="L153">        Treasure theTreasure = new Treasure();</span>
+<span class="nc" id="L154">        theTreasure.setDesc(&quot;A bag filled with shiny gold Galleons.&quot;);</span>
+<span class="nc" id="L155">        r11.addItem(theTreasure);</span>
+
+        // Lets connect them:
+<span class="nc" id="L158">        r4.setSide(0, r8);</span>
+<span class="nc" id="L159">        r8.setSide(1, r4);</span>
+<span class="nc" id="L160">        r8.setSide(3, r9);</span>
+<span class="nc" id="L161">        r8.setSide(2, r10);</span>
+<span class="nc" id="L162">        r9.setSide(2, r8);</span>
+<span class="nc" id="L163">        r10.setSide(3, r8);</span>
+
+        // Create a key and put it in r6:
+<span class="nc" id="L166">        Key theKey = new Key();</span>
+<span class="nc" id="L167">        theKey.setDesc(&quot;A shiny gold key.&quot;);</span>
+<span class="nc" id="L168">        r6.addItem(theKey);</span>
+
+        // We add a door between r10 and r11: 
+<span class="nc" id="L171">        Door theDoor = new Door(r10, r11, theKey);</span>
+<span class="nc" id="L172">        r10.setSide(5, theDoor);</span>
+<span class="nc" id="L173">        r11.setSide(4, theDoor);</span>
+
+        // Now return the entrance:
+<span class="nc" id="L176">        entrance = outside;</span>
+<span class="nc" id="L177">        return entrance;</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Player.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Team_03&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">esof322.a2</a> &gt; <span class="el_source">Player.java</span></div><h1>Player.java</h1><pre class="source lang-java linenums">//Ashley Bertrand and Megan Weller
+package esof322.a2;
+
+/*We added two methods getFirstItem() and getSecondItem() for formatting
+purposes in the model's implementation for grab() and drop().
+*/
+
+/**
+ * Adventure Game Program Code Copyright (c) 1999 James M. Bieman
+ *
+ * To compile: javac AdventureGame.java To run: java AdventureGame
+ *
+ * The main routine is AdventureGame.main
+ *
+ *
+ */
+<span class="nc" id="L17">public class Player {</span>
+
+    private Room myLoc;
+
+<span class="nc" id="L21">    private Item[] myThings = new Item[2];</span>
+
+<span class="nc" id="L23">    private int itemCount = 0;</span>
+
+    public void setRoom(Room r) {
+<span class="nc" id="L26">        myLoc = r;</span>
+<span class="nc" id="L27">    }</span>
+
+    public String look() {
+<span class="nc" id="L30">        return myLoc.getDesc();</span>
+    }
+
+    public void go(int direction) {
+<span class="nc" id="L34">        myLoc.exit(direction, this);</span>
+<span class="nc" id="L35">    }</span>
+
+    public void pickUp(Item i) {
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (itemCount &lt; 2) {</span>
+<span class="nc" id="L39">            myThings[itemCount] = i;</span>
+<span class="nc" id="L40">            itemCount++;</span>
+<span class="nc" id="L41">            myLoc.removeItem(i);</span>
+        }
+<span class="nc" id="L43">    }</span>
+
+    public boolean haveItem(Item itemToFind) {
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        for (int n = 0; n &lt; itemCount; n++) {</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">            if (myThings[n] == itemToFind) {</span>
+<span class="nc" id="L48">                return true;</span>
+            }
+        }
+<span class="nc" id="L51">        return false;</span>
+    }
+
+    public void drop(int itemNum) {
+<span class="nc bnc" id="L55" title="All 6 branches missed.">        if (itemNum &gt; 0 &amp; itemNum &lt;= itemCount) {</span>
+<span class="nc bnc" id="L56" title="All 3 branches missed.">            switch (itemNum) {</span>
+                case 1: {
+<span class="nc" id="L58">                    myLoc.addItem(myThings[0]);</span>
+<span class="nc" id="L59">                    myThings[0] = myThings[1];</span>
+<span class="nc" id="L60">                    itemCount--;</span>
+<span class="nc" id="L61">                    break;</span>
+                }
+                case 2: {
+<span class="nc" id="L64">                    myLoc.addItem(myThings[1]);</span>
+<span class="nc" id="L65">                    itemCount--;</span>
+                    break;
+                }
+            }
+        }
+<span class="nc" id="L70">    }</span>
+
+    //Ashley added the following two methods for formatting purposes
+    //called in the model by grab() and drop()
+    public String getFirstItem() {
+<span class="nc" id="L75">        return myThings[0].getDesc();</span>
+    }
+
+    //called in the model by grab()
+    public String getSecondItem() {
+<span class="nc" id="L80">        return myThings[1].getDesc();</span>
+    }
+
+    public void setLoc(Room r) {
+<span class="nc" id="L84">        myLoc = r;</span>
+<span class="nc" id="L85">    }</span>
+
+    public Room getLoc() {
+<span class="nc" id="L88">        return myLoc;</span>
+    }
+
+    public String showMyThings() {
+<span class="nc" id="L92">        String outString = &quot;&quot;;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">        for (int n = 0; n &lt; itemCount; n++) {</span>
+<span class="nc" id="L94">            outString = outString + Integer.toString(n + 1) + &quot;: &quot;</span>
+<span class="nc" id="L95">                    + myThings[n].getDesc() + &quot; &quot;;</span>
+        }
+<span class="nc" id="L97">        return outString;</span>
+    }
+
+    public boolean handsFull() {
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        return itemCount == 2;</span>
+    }
+
+    public boolean handsEmpty() {
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        return itemCount == 0;</span>
+    }
+
+    public int numItemsCarried() {
+<span class="nc" id="L109">        return itemCount;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
